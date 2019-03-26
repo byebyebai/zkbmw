@@ -1,0 +1,98 @@
+﻿.fixedR{
+	position: fixed;
+	display: block;
+	right: 0;
+	top: 50%;
+	transform: translate(0, -50%);
+	z-index: 999;
+	cursor: pointer;
+}
+
+.fixedR>img{
+	display: block;
+	width: 81px;
+	height: 190px;
+}
+
+.fixedR:hover>img{
+	display: none;
+}
+
+.enrollInfo{
+	display: none;
+	width: 240px;
+    min-height: 530px;
+	background: url(../images/bg.png) no-repeat center;
+	background-size: 240px 523px;
+	padding-top: 65px;
+	box-sizing: border-box;
+}
+
+.fixedR:hover>.enrollInfo{
+	display: block;
+}
+
+.enrollInfo>ul{
+	width: 180px;
+	margin-left: 34px;
+}
+
+.enrollInfo>ul>li{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.enrollInfo>ul>li h3{
+	font-size: 16px;
+	color: #666;
+	margin-bottom: 9px;
+	font-weight: normal;
+}
+
+.enrollInfo>ul>li h3 span{
+	font-size: 16px;
+	color: #ff0000;
+}
+
+.enrollInfo>ul>li>input,.enrollInfo>ul>li>select{
+	display: block;
+	width: 180px;
+	height: 30px;
+	box-sizing: border-box;
+	border: 1px solid #ededed;
+	padding-left: 15px;
+	padding-right: 10px;
+	font-size: 14px;
+	color: #111;
+}
+
+.enrollInfo>ul>li>div>input{
+	width: 94px;
+	height: 30px;
+	border: 1px solid #ededed;
+	float: left;
+	display: block;
+	box-sizing: border-box;
+}
+
+.enrollInfo>ul>li>div>img{
+	display: block;
+	float: right;
+	width: 76px;
+	height: 30px;
+}
+
+.submit{
+	display: block;
+	width: 180px;
+	height: 30px;
+	border-radius: 5px;
+	border: none;
+	background-color: #378fe8;
+	font-size: 14px;
+	color: #fff;
+	font-weight: bold;
+	margin-left: 34px;
+	cursor: pointer;
+    margin-top:60px
+}

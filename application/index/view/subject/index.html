@@ -1,0 +1,76 @@
+<div class="city">
+    <dl style="width:550px;">
+
+        <dt>类别：</dt>
+        <dd {notpresent name="$where.subjectType"}class="active"{/notpresent}>
+            <a href='{$Request.domain}/subject/index.html{present name="$where.subjectLevel"}?type={$where.subjectLevel}{/present}'}">全部</a>
+        </dd>
+        {volist name=':subjectType()' id="vo" key="k"}
+        <dd {present name="$where"}{notempty name="$where['subjectType']"}{if condition="$k eq $where['subjectType']"} class="active"{/if}{/notempty}{/present}>
+            <a href="{$Request.domain}/subject/index.html?type={$k}{present name="$where.subjectLevel"}&level={$where.subjectLevel}{/present}">{$vo}</a>
+        </li>
+        {/volist}
+        
+    </dl>
+
+    <dl style="width:550px;">
+        <dt>层次：</dt>
+        <dd {notpresent name="$where.subjectLevel"}class="active"{/notpresent}>
+            <a href='{$Request.domain}/subject/index.html{present name="$where.subjectType"}?type={$where.subjectType}{/present}'>全部</a>
+        </dd>
+        {volist name=":subjectLevel()"  id="vo" key="k" length='2'}
+
+        <dd {present name="$where.subjectLevel"}{if condition="$k eq $where['subjectLevel']"} class="active"{/if}{/present}>
+            <a href="{$Request.domain}/subject/index.html?{present name="$where.subjectType"}type={$where.subjectType}&{/present}level={$k}">{$vo}</a>
+        </dd>
+        {/volist}
+    </dl>
+</div>
+<div>
+</div>
+<div class="bbody">
+    <div class="content">
+        <div class="bbodyLeft">
+            
+            <ul>
+                {volist name="$subjects" id="vo"}
+                    <li>
+                        <a href="{$Request.domain}/subject/{$vo.subjectId}.html" target="_blank">
+                            <img src="{$Request.domain}/{$vo.subjectImage}" alt="{$vo.subjectName}">
+                            <h4>{$vo.subjectName}</h4>
+                        </a>
+                        <a href="/xndx/enroll/" target="_blank">
+                            <span>网上报名</span>
+                        </a>
+                        <a href="/xndx/news/c7.html" target="_blank">
+                            <span>专业详情</span>
+                        </a>
+                        <a href="/xndx/news/c7.html" target="_blank">
+                            <span>主考院校</span>
+                        </a>
+                    </li>
+                {/volist}
+            </ul>
+            {empty name="$subjects"}
+                未查到更多数据
+            {/empty}
+            <div class="page">
+                <div>
+                    {$subjects->render()}
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="hidSearchID" value="2">
+          <style type="text/css">
+    .page .pagination li{
+      float: left;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius:50%;
+    }
+    .page .pagination .active{
+      background: #25A3FD;
+      color: #fff;
+    }
+  </style>

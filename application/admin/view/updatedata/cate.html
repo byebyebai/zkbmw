@@ -1,0 +1,106 @@
+<h3>栏目更新</h3>
+<div class="row">
+	<div class="form-group col-md-4">
+	    <label>栏目列表</label>
+	    <select multiple="" class="form-control" id="cate">
+	       {volist name="list" id="item"}
+				<option value="{$item.id}">{$item.category_name}</option>
+	       {/volist}
+	    </select>
+    </div>
+    <div class="form-group col-md-4">
+	    <label>子栏目（可不选）</label>
+	    <select multiple="" class="form-control" id="cate1">
+	    </select>
+    </div>
+    <div class="form-group col-md-4">
+    	<label for="">操作</label>
+    	<button type="button" class="btn btn-block btn-primary btn-sm" style="width: 33%;" id="actionCreateStatic">开始执行</button>
+    	<br/>
+    	<button type="button" class="btn btn-block btn-primary btn-sm" style="width: 33%;" id="actionCreateStaticAll">全部更新</button>
+    </div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+        <p class="text-center">
+            <strong>执行进度</strong>
+        </p>
+        <div class="progress-group">
+            <span class="progress-text">加载</span>
+            <span class="progress-number"><b class="now">0</b>/<span class="count">默认</span></span>
+            <div class="progress">
+              <div class="progress-bar progress-bar-green" id="loading" style="width:0%"></div>
+            </div>
+            <p>执行结果集</p>
+            <div class="res1">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	$("#cate").change(function(){
+		var pid = $("#cate").val()[0];
+
+        $("#cate1").empty();
+        $.post("/admin/article_category/getChildCategoryId", {pid:pid },function(e){
+
+            var html = ''
+            if(e.code == 200){
+                for(var i = 0;i<e.data.length;i++){
+                    html += '<option value="'+e.data[i].id+'" disabled>'+e.data[i].category_name+'</option>';
+                }
+            }
+            $("#cate1").append(html);
+        })
+
+	})
+	//更新全部数据
+	$("#actionCreateStaticAll").click(function(){
+		$.get('/index/category/createStaticCate',{cid:'all'},function(result){
+
+			if(result.status == '200'){
+				request('/index/category/doActionCreateHtml');
+			}else{
+				alert(result.msg);
+			}
+		},'JSON')
+	})
+
+	$("#actionCreateStatic").click(function(){
+		var cid = $("#cate").val()[0];
+
+		$(".res1").html('');
+		$.get('/index/category/createStaticCate',{cid:cid},function(result){
+
+			if(result.status == '200'){
+				request('/index/category/doActionCreateHtml');
+			}else{
+				alert(result.msg);
+			}
+		},'JSON')
+		
+	})
+
+	function request(url){
+
+		$.get(url,{},function(result){
+			
+			if(result.status != 200){
+				request('/index/category/doActionCreateHtml');
+			}
+			$(".res1").html(result.msg);
+			
+		},'json')
+
+	}
+
+	$("#rmCache").click(function(){
+		$.get('/Admin/Updatedata/rmCache',{},function(result){
+			if(result == 1){
+				alert('清除缓存成功');
+			}else{
+				alert('清除缓存失败');
+			}
+		},'json')
+	})
+</script>

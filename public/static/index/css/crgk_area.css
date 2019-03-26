@@ -1,0 +1,860 @@
+﻿@charset "utf-8";
+/*头部*/
+.searchIpt {
+    width: 153px;
+}
+
+.keyword {
+    width: 225px;
+}
+/*内容*/
+
+.item1img {
+    width: 328px;
+    margin-right: 15px;
+}
+
+    .item1img img {
+        display: block;
+        width: 100%;
+        height: 349px;
+    }
+
+.touTiao {
+    width: 447px;
+    overflow: hidden;
+}
+
+.tTitle {
+    font-size: 24px;
+    color: #2e3639;
+    background: url(../images/zxzx.png) no-repeat left;
+    padding-left: 52px;
+	line-height: 38px;
+}
+
+.touTop {
+    margin-bottom: 17px;
+}
+
+    .touTop h3 {
+        font-size: 18px;
+        color: #2e3639;
+        text-align: center;
+        margin: 25px 0 10px;
+    }
+
+    .touTop p {
+        font-size: 14px;
+        color: #999;
+        line-height: 24px;
+        max-height: 96px;
+        text-overflow: ellipsis;
+        overflow:hidden;
+    }
+
+    .touTop a:hover h3 {
+        color: #25a3fd;
+    }
+
+.touTiao li {
+    clear: both;
+    overflow: hidden;
+    line-height: 35px;
+}
+
+    .touTiao li a {
+        float: left;
+        font-size: 16px;
+        color: #2e3639;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 360px;
+    }
+
+        .touTiao li a:hover {
+            color: #25a3fd;
+        }
+
+    .touTiao li span {
+        float: right;
+        font-size: 14px;
+        color: #999;
+    }
+
+.hotYx {
+    width: 197px;
+}
+
+    .hotYx h2 {
+        font-size: 18px;
+        color: #fff;
+        background: #0aacfc;
+        text-align: center;
+        line-height: 52px;
+        border-radius: 2px 2px 0 0;
+        overflow: hidden;
+    }
+
+    .hotYx ul {
+        border: 1px solid #f5f5f5;
+        border-top: none;
+        padding: 16px 20px 8px;
+        border-radius: 0 0 2px 2px;
+    }
+
+    .hotYx li a {
+        display: block;
+        font-size: 14px;
+        color: #666;
+        background: url(../images/libg1.png) no-repeat left center;
+        padding-left: 17px;
+        line-height: 36px;
+        position: relative;
+    }
+
+    .hotYx li.hot a {
+        color: #2e3639;
+        background-image: url(../images/libg2.png);
+    }
+
+    .hotYx li span {
+        font-size: 12px;
+        color: #999;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: block;
+    }
+
+    .hotYx li em {
+        display: block;
+        width: 70%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+.item2 {
+    margin-top:30px;
+}
+
+.item2Con {
+    width:720px;
+    overflow: hidden;
+}
+
+.item2Tit {
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+    color: #0aacfc;
+    position: relative;
+    height: 34px;
+    line-height: 34px;
+    padding-bottom: 12px;
+}
+
+    .item2Tit span {
+        display: block;
+        background-position: left center;
+        padding-left: 26px;
+        background-repeat: no-repeat;
+    }
+
+    .item2Tit a {
+        font-size: 14px;
+        color: #666;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+.item2Con .item2Tit span {
+    background-image: url(../images/zc.png);
+}
+#tagscloud{width:260px;height:260px;position:relative;font-size:12px;color:#333;margin:0 auto 0;text-align:center;}
+#tagscloud a{position:absolute;top:0px;left:0px;color:#333;font-family:Arial;text-decoration:none;margin:0 15px 15px 0;line-height:18px;text-align:center;font-size:12px;padding:1px 5px;display:inline-block;border-radius:3px;}
+#tagscloud a.tagc1{background:#666;color:#fff;}
+#tagscloud a.tagc2{background:#0aacfc;color:#fff;}
+#tagscloud a.tagc5{background:#ff871d;color:#fff;}
+#tagscloud a:hover{color:#fff;background:#0099ff;}
+#tagscloud h2{background:#00a9f0;line-height:30px;color:#fff;font-size:18px;}
+.item2 li a {
+    display: block;
+    line-height: 39px;
+    font-size: 16px;
+    color: #2e3639;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url(../images/libg4.png) no-repeat left center;
+    padding-left: 23px;
+}
+
+    .item2 li a:hover {
+        color: #25a3fd;
+    }
+
+.item2Con li a:hover {
+    background-image: url(../images/libg4_hover.png);
+}
+
+.item2Con ul {
+    width: 720px;
+    margin-top: 30px;
+}
+
+.item2Con li {
+    float: left;
+    display: inline;
+    margin-right: 40px;
+    width:320px;
+}
+
+.item2Cr {
+    width: 260px;
+}
+
+.guide {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 35px;
+}
+
+    .guide h2 {
+        font-size: 18px;
+        color: #2e3639;
+        line-height: 48px;
+        background: #f5f5f5;
+        text-align: center;
+        font-weight: bold;
+    }
+
+        .guide h2 span {
+            color: #ff871d;
+        }
+
+    .guide ul {
+        padding: 0 0 24px 20px;
+    }
+
+    .guide li {
+        float: left;
+        display: inline;
+        margin: 20px 16px 0 0;
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #25a3fd;
+        text-align: center;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+        .guide li a {
+            display: block;
+            font-size: 14px;
+            color: #25a3fd;
+            line-height: 30px;
+            background: none;
+            padding: 0;
+        }
+
+            .guide li a:hover {
+                background: #25a3fd;
+                color: #fff;
+            }
+
+.item2Cr .item2Tit span {
+    background-image: url(../images/tag.png);
+}
+
+.zsjzUl {
+    margin-top: 19px;
+}
+
+    .zsjzUl li a {
+        background: url(../images/libg3.png) no-repeat left center;
+        padding-left: 22px;
+        line-height: 37px;
+    }
+
+.timer {
+    margin-top: 53px;
+}
+
+.date {
+    background: url(../images/gkbg1.jpg) no-repeat;
+    width: 120px;
+    height: 189px;
+    overflow: hidden;
+    text-align: center;
+}
+
+    .date p {
+        font-size: 14px;
+        color: #fff;
+        margin-top: 84px;
+        line-height: 26px;
+    }
+
+    .date span {
+        display: block;
+        font-size: 14px;
+        color: #fff;
+        height: 17px;
+        line-height: 17px;
+    }
+
+.countTime {
+    font-size: 42px;
+    color: #2e3639;
+    line-height: 48px;
+    font-weight: bold;
+    margin: 7px 0 6px 12px;
+    letter-spacing: 15px;
+}
+
+.timerR {
+    border: 1px solid #ccc;
+    width: 1059px;
+    height: 187px;
+    border-left: none;
+    padding-left: 20px;
+}
+
+    .timerR li {
+        float: left;
+        display: inline;
+        width: 205px;
+    }
+
+        .timerR li.fir {
+            width: 219px;
+        }
+
+        .timerR li h3 {
+            font-size: 18px;
+            color: #666;
+            margin: 30px 0 10px;
+        }
+
+        .timerR li p {
+            font-size: 14px;
+            color: #de1212;
+            line-height: 22px;
+        }
+
+        .timerR li a {
+            display: inline-block;
+            margin: 0 6px 6px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .timerR li p a {
+            width: 58px;
+            color: #fff;
+            font-size: 12px;
+            background: #ff2222;
+            text-align: center;
+            margin: 0;
+            margin-left: 10px;
+        }
+
+.line {
+    border-bottom: 1px dashed #cecece;
+    margin: 16px 0;
+    position: relative;
+}
+
+    .line em {
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url(../images/gkico4.png) no-repeat center;
+        position: absolute;
+        left: 9px;
+        top: 50%;
+        margin-top: -10px;
+    }
+
+.timerR li.current h3 {
+    color: #de1212;
+}
+
+.timerR li.current .line em {
+    background-image: url(../images/gkico3.png);
+}
+
+.item3 {
+    margin-top:30px;
+}
+
+.item3Tit {
+    text-align: center;
+    font-size: 24px;
+    color: #2e3639;
+    margin-bottom: 15px;
+}
+
+    .item3Tit span {
+        background: url(../images/titbg1.png) no-repeat left center;
+        padding-left: 70px;
+        display: inline-block;
+    }
+
+    .item3Tit em {
+        background: url(../images/titbg2.png) no-repeat right center;
+        padding-right: 70px;
+        display: inline-block;
+    }
+
+.item3Con ul {
+    width: 930px;
+	margin-left:60px;
+}
+
+.item3Con li {
+    float: left;
+    display: inline;
+    width: 270px;
+    margin: 40px 40px 0 0;
+}
+
+.yxpic {
+    display: block;
+    transition: all .3s ease;
+}
+
+    .yxpic img {
+        display: block;
+        width: 100%;
+        height: 180px;
+    }
+
+.item3Con li h3 {
+    margin: 20px 0 15px;
+}
+
+    .item3Con li h3 a {
+        display: block;
+        text-align: center;
+        font-size: 16px;
+        color: #2e3639;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+.item3Con li p a {
+    font-size: 14px;
+    color: #999;
+    padding-left: 16px;
+}
+
+.item3Con li:hover .yxpic {
+    transform: translateY(-10px);
+    box-shadow: 2px 0 12px rgba(0,0,0,0.5);
+}
+
+.item3Con li:hover h3 a {
+    color: #25a3fd;
+}
+
+.item3Con li .zsjz {
+    background: url(../images/zsico1.jpg) no-repeat left center;
+    margin-right: 24px;
+}
+
+.item3Con li .zkzy {
+    background: url(../images/zsico2.jpg) no-repeat left center;
+}
+
+.item3Con li .zxbm {
+    background: url(../images/zsico3.jpg) no-repeat left center;
+}
+
+.item4 {
+    margin-top: 60px;
+}
+
+.item4Con {
+    width: 700px;
+}
+
+    .item4Con .item2Tit {
+        color: #2e3639;
+        font-size: 20px;
+    }
+
+        .item4Con .item2Tit span {
+            background-image: url(../images/bmzy.png);
+            padding-left: 24px;
+			background-size:21px;
+        }
+
+.hotZy {
+    width: 260px;
+}
+
+    .hotZy h2 {
+        font-size: 18px;
+        color: #fff;
+        background:#0aacfc;
+        text-align: center;
+        line-height: 52px;
+        border-radius: 2px 2px 0 0;
+        overflow: hidden;
+    }
+
+    .hotZy ul {
+        border: 1px solid #f5f5f5;
+        border-top: none;
+        padding: 16px 20px 8px;
+        border: 0 0 2px 2px;
+    }
+
+    .hotZy li a {
+        display: block;
+        font-size: 16px;
+        color: #666;
+        background: url(../images/libg1.png) no-repeat left center;
+        padding-left: 17px;
+        line-height: 36px;
+        position: relative;
+    }
+
+    .hotZy li.hot a {
+        color: #2e3639;
+        background-image: url(../images/hnico2.png);
+    }
+
+    .hotZy li.special a {
+        color: #2e3639;
+        background-image: url(../images/hnico3.png);
+    }
+
+    .hotZy li span {
+        font-size: 12px;
+        color: #999;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: block;
+    }
+
+    .hotZy li em {
+        display: block;
+        width: 70%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+.zyCon li {
+    float: left;
+    display: inline;
+    width:134px;
+    margin:30px 15px 0 25px;
+}
+
+.zyimg {
+    margin-right: 14px;
+}
+
+    .zyimg img {
+        display: block;
+        width: 121px;
+        height: 75px;
+        border-radius: 50%;
+    }
+
+.zyinfo h3 {
+    width: 110px;
+    margin: 10px 0;
+	text-align:center;
+}
+
+    .zyinfo h3 a {
+        display: block;
+        font-size: 16px;
+        color: #2e3639;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+.zyinfo p a {
+    font-size: 12px;
+    color: #999;
+    margin-right: 20px;
+}
+
+.zyinfo a:hover {
+    color: #25a3fd;
+}
+
+.item5 {
+    padding:30px 0;
+}
+
+.ksst {
+    width: 800px;
+}
+
+    .ksst .item2Tit span {
+        background-image: url(../images/gkico5.png);
+        padding-left: 20px;
+    }
+
+    .ksst h3 {
+        font-size: 18px;
+        color: #1f9cef;
+        margin: 35px 0 8px;
+    }
+
+    .ksst li a {
+        background: url(../images/libg4.png) no-repeat left center;
+        padding-left: 19px;
+        line-height: 38px;
+        font-size: 16px;
+        color: #2e3639;
+    }
+
+        .ksst li a:hover {
+            color: #25a3fd;
+        }
+
+.ckbk {
+    width: 360px;
+}
+
+    .ckbk h2 {
+        text-align: center;
+        background: url(../images/gkbg2.jpg) no-repeat;
+        height: 61px;
+        line-height: 61px;
+        font-size: 20px;
+        color: #fff;
+    }
+
+.ckbkCon {
+    border: 1px solid #25a3fd;
+    border-top: none;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+    .ckbkCon h3 {
+        font-size: 18px;
+        color: #2e3639;
+        margin: 40px 0 25px;
+        text-align: center;
+    }
+
+    .ckbkCon ul {
+        padding-left: 19px;
+    }
+
+    .ckbkCon li {
+        float: left;
+        display: inline;
+        width: 95px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        margin: 0 16px 20px 0;
+        border-radius: 3px;
+        background: #f5f5f5;
+        overflow: hidden;
+    }
+
+        .ckbkCon li a {
+            display: block;
+            font-size: 14px;
+            color: #2e3639;
+        }
+
+            .ckbkCon li a:hover {
+                background: #25a3fd;
+                color: #fff;
+            }
+/*底部*/
+.zikao {
+    text-align: left;
+    margin-left: 50px;
+    position: relative;
+    padding-left: 84px;
+    font-size: 14px;
+    color: #666;
+    line-height: 24px;
+    margin-bottom: 15px;
+}
+
+    .zikao span {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .zikao a {
+        float: left;
+        color: #666;
+        margin-right: 36px;
+        margin-bottom: 5px;
+    }
+
+.friendLink {
+    text-align: left;
+    margin-left: 50px;
+    position: relative;
+    padding-left: 84px;
+    line-height: 24px;
+}
+
+    .friendLink a {
+        float: left;
+        color: #666;
+        margin-right: 36px;
+        margin-bottom: 5px;
+    }
+
+    .friendLink span {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+/* 模态框 */
+
+.popDiv {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    display: none;
+}
+
+    .popDiv > div {
+        width: 600px;
+        position: absolute;
+        left: 50%;
+        margin-left: -300px;
+        text-align: center;
+        overflow: hidden;
+        padding: 30px 20px;
+        padding-bottom: 60px;
+        margin-top: 150px;
+        background: #fff;
+        border-radius: 10px;
+    }
+
+        .popDiv > div > dl {
+            display: block;
+            overflow: hidden;
+        }
+
+        .popDiv > div dt {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .popDiv > div dd {
+            display: block;
+            float: left;
+            font-size: 16px;
+            padding: 2px 6px;
+            margin: 10px 20px;
+            cursor: pointer;
+        }
+
+            .popDiv > div dd:hover {
+                background: #08A7E6;
+                color: #fff;
+            }
+
+    .popDiv > span {
+        display: block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        position: absolute;
+        left: 50%;
+        margin-left: 317px;
+        margin-top: 155px;
+        z-index: 9;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        .popDiv > span:hover {
+            color: #25A3FD;
+        }
+
+/* 模态框 */
+.changecity {
+    display: inline-block;
+    font-size: 16px;
+    color: rgba(46, 54, 57, 1);
+    margin-left: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+    .changecity > span {
+        color: rgba(37, 163, 253, 1);
+        margin-left: 5px;
+    }
+
+.xtlx {
+    width: 800px;
+}
+
+    .xtlx h2 {
+        background: #f2feeb url(../images/zkico1.png) no-repeat 30px center;
+        height: 57px;
+        line-height: 57px;
+        font-size: 20px;
+        color: #4fbd0d;
+        padding-left: 60px;
+        border: 1px solid #4fbd0d;
+        border-radius: 5px 0 0 0;
+        position: relative;
+    }
+
+.xtlxCon {
+    border: 1px solid #4fbd0d;
+    border-top: none;
+    overflow: hidden;
+    padding: 19px;
+    border-radius: 0 0 5px 5px;
+}
+
+    .xtlxCon li a {
+        width: 50%;
+        display: block;
+        font-size: 16px;
+        color: #2e3639;
+        line-height: 37px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        float: left;
+    }
+
+.kss {
+    width: 360px;
+}
+
+    .kss a {
+        display: block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }

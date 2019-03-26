@@ -1,0 +1,57 @@
+<div class="weizhi">
+    你当前所在的位置：<a href="/">自考报名网</a>&gt;<a href="{$Request.domain}/cate/{$category_info.id}.html">{$category_info.category_name}</a> 
+</div> 
+<div class="lmjs"> 
+  <div class="lmjsleft"> 
+    <img src="{$category_info.image}" alt="{$category_info.category_name}" /> 
+  </div> 
+  <div class="lmjsright"> 
+    <h1>{$category_info.category_name|default=''}</h1> 
+    <p>{$category_info.desc|default=''}</p> 
+  </div> 
+</div> 
+<div class="bbody"> 
+ <div class="content"> 
+  <div class="bbodyLeft"> 
+   <div class="changeRange"> 
+    <ul> 
+      {volist name="$item" id="item"}
+      <li> 
+        <div class="changeRangeleft">
+          <img src="{$item.thumb_img|default=''}" alt="" />
+        </div> 
+        <div class="changeRangeright"> 
+          <h3><a href="{$Request.domain}/{:c2PyByAreaid($item.province_id)}/info_{$item.id}.html" target="_blank" title="{$item.title}">{$item.title|default=''}</a> </h3> 
+          <p><a href="{$Request.domain}/{:c2PyByAreaid($item.province_id)}/info_{$item.id}.html" target="_blank">{$item.describe|default=''}</a> </p> 
+          <div> 
+            <span>{$item.add_time|default=''}</span> 
+            <span><a href="{$Request.domain}/{:c2PyByAreaid($item.province_id)}/index.html">{:getAreaName($item.province_id)}</a></span> 
+          </div> 
+        </div>
+      </li>
+      {/volist} 
+    </ul> 
+   </div>  
+  <div class="page"> 
+    <div>
+     <div>
+      {$page}
+     </div>
+     {$nextHtml}
+     {$endHtml}
+    </div> 
+  </div> 
+</div> 
+<script type="text/javascript">
+  var url ;
+  url = window.location.href; 
+  var a =/_\d*\./.exec(url);
+  if(a){
+    var a = a[0].replace("_","");
+    var a = a.replace(".","");
+    a = parseInt(a)
+    $(".page ."+a).addClass('active');
+  }else{
+    $(".page .1").addClass('active');
+  }
+</script>    

@@ -1,0 +1,56 @@
+<div class="weizhi">
+    你当前所在的位置：<a href="/">自考报名网</a>&gt;<a href="javascript:void(0);">搜索></a><a href="">{$Request.param.keywords}</a> 
+</div>
+<div class="bbody"> 
+ <div class="content"> 
+  <div class="bbodyLeft"> 
+   <div class="changeRange"> 
+    <ul> 
+      {volist name="$item" id="item"}
+      <li> 
+        <div class="changeRangeleft">
+          <img src="{$item.thumb_img|default=''}" alt="" />
+        </div> 
+        <div class="changeRangeright"> 
+          <h3><a href="{$Request.domain}/{:c2PyByAreaid($item.province_id)}/info_{$item.id}.html" target="_blank" title="{$item.title}">{$item.title|default=''}</a> </h3> 
+          <p><a href="{$Request.domain}/{:c2PyByAreaid($item.province_id)}/info_{$item.id}.html" target="_blank">{$item.describe|default=''}</a> </p> 
+          <div> 
+            <span>{$item.add_time|default=''}</span> 
+            <span><a href="{$Request.domain}/{:c2PyByAreaid($item.province_id)}/index.html">{:getAreaName($item.province_id)}</a></span> 
+          </div> 
+        </div>
+      </li>
+      {/volist} 
+    </ul> 
+   </div>  
+  <div class="page">
+    {$page}
+  </div> 
+</div>  
+<style type="text/css">
+  .page {
+    width: 730px;
+    height: 74px;
+    display: inline-block;
+  }
+  .page .pagination{
+    width: 80%;
+    height: 74px;
+    margin: 0 auto;
+  }
+  .page .pagination li{
+    float: left;
+    padding: 2px 4px;
+    margin: 15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 36px;
+  }
+  .page .pagination .active{
+    background: #25A3FD;
+                color: #fff;
+  } 
+</style>

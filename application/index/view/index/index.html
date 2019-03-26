@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="{$Request.domain}__CSS__/base.css" />
+    <link rel="stylesheet" href="{$Request.domain}__CSS__/zxks.css" />
+    <script type="text/javascript" src="{$Request.domain}__JS__/jquery.min.js"></script>
+    <script type="text/javascript" src="{$Request.domain}__JS__/javascript.js"></script>
+    <title>{$ohter.title}</title>
+    <meta name="keywords" content="{$ohter.seo_keywords}">
+    <meta name="description" content="{$ohter.seo_describe}">
+</head>
+<body>
+<div class="top">
+    <div>
+       Hi，欢迎来到<a href="#"style="float: none;" >自考报名网</a>
+        <p>
+            <a href="#">网站地图</a>
+            <a href="{$Request.domain}/wsbm.html">网上报名</a>
+            <a href="javascript:void(0);" onclick="addFavorite2()"  title="收藏本站到收藏夹">加入收藏</a>
+        </p>
+    </div>
+</div>
+<div class="head">
+    <h1><a href="#" class="index_logo">自考报名网</a></h1>
+	<ul>
+		<li><a href="{$Request.domain}/wsbm.html" class="wsbm">网上报名</a></li>
+        <li><a href="{$Request.domain}/subject/index.html" class="zy">报名专业</a></li>
+        <li><a href="{$Request.domain}/school/index.html" class="yx">报考院校</a></li>
+		<li><a href="#" class="sj">书籍材料</a></li>
+	</ul>
+    <div class="search">
+        <input type="text" id="search_content">
+        <a href="javascript:;" onclick="find()">
+            <img src="__IMAGES__/search.png" alt="">
+        </a>
+    </div>
+</div>
+<div class="menu">
+    <ul>
+        <li class="active"><a href="">自考报名</a></li>
+        <li class=""><a href="{$Request.domain}/school/index.html" target="_blank">报考院校</a></li>
+        <li class=""><a href="{$Request.domain}/subject/index.html" target="_blank">报名专业</a></li>
+        <li class=""><a href="{$Request.domain}/cate/19.html" target="_blank">网上报名</a></li>
+        <li class=""><a href="{$Request.domain}/cate/21.html" target="_blank">报考时间</a></li>
+        <li><a href="{$Request.domain}/cate/20.html" target="_blank">报名流程</a></li>
+        <li><a href="{$Request.domain}/cate/22.html" target="_blank">报名条件</a></li>
+        <li class=""><a href="{$Request.domain}/cate/17.html" target="_blank">报考资讯</a></li>
+    </ul>
+</div>
+    <div class="area wrap fix">
+        <span>各地区：</span>
+            {volist name=":C2PY()" id="vo"}
+                <a href="{$Request.domain}/dq/{$vo.dir}.html" target="_blank" title="{$vo.name}">{$vo.name}</a>
+            {/volist}
+
+    </div>
+    <div class="item1 wrap fix">
+        <div class="tTitle">自考报考</div>
+        <div class="touTiao fl">
+            <ul class="fix">
+                {volist name="$news" id="vo"}
+                    <li class="pr">
+                        <a href="{$Request.domain}/{$vo.dir}/index.html">{$vo.area}</a></a>
+                        <a href="{$Request.domain}/{$vo.dir}/info_{$vo.id}.html" target="_blank" title="{$vo.title}">{$vo.title}</a>
+                    </li>
+                {/volist}
+            </ul>
+        </div>
+        <a href="{$Request.url}" class="item1img fr">
+            <img src="{$Request.domain}{$ohter.thumb}" alt="">
+        </a>
+
+
+    </div>
+
+    <div class="xxcx">
+        <a href="#">2019年全国自学考试网上报名系统</a>
+    </div>
+
+    <div class="item2 wrap fix">
+        <div class="item2Con policy fl">
+            <div class="item2Tit"><span>报考资讯</span><a href="{$Request.domain}/cate/17.html" target="_blank">更多></a></div>
+            <ul class="fix">
+                {volist name="$news_bk" id="vo"}
+                <li class="pr">
+                    <a href="{$Request.domain}/{$vo.dir}/index.html">{$vo.area}</a></a>
+                    <a href="{$Request.domain}/{$vo.dir}/info_{$vo.id}.html" target="_blank" title="{$vo.title}">{$vo.title}</a>
+                </li>
+                {/volist}   
+            </ul>
+        </div>
+        <div class="item2Cr fr">
+            <div class="guide">
+				<h2>报考<span>指南</span></h2>
+				<ul class="fix">
+					<li><a href="{$Request.domain}/cate/22.html">报考条件</a></li>
+					<li><a href="{$Request.domain}/cate/21.html">报名时间</a></li>
+					<li><a href="{$Request.domain}/cate/20.html">报名流程</a></li>
+					<li><a href="{$Request.domain}/cate/25.html">考试时间</a></li>
+					<li><a href="{$Request.domain}/cate/26.html">报考材料</a></li>
+					<li><a href="{$Request.domain}/wsbm.html">报名入口</a></li>
+				</ul>
+			</div>
+            <div class="item2Tit"><span>热门标签</span></div>
+				<div id="tagscloud">
+				</div>
+        </div>
+    </div>
+
+    <div class="item3 wrap">
+        <div class="item3Tit"><span><em>报考院校</em></span></div>
+        <div>
+            <div class="item3Tab fix zyhd stf">
+                
+                        <a href="javascript:;" class="active" title="北京">京</a>
+                    
+                        <a href="javascript:;" class="" title="天津">津</a>
+                    
+                        <a href="javascript:;" class="" title="上海">沪</a>
+                    
+                        <a href="javascript:;" class="" title="重庆">渝</a>
+                    
+                        <a href="javascript:;" class="" title="河北">冀</a>
+                    
+                        <a href="javascript:;" class="" title="山西">晋</a>
+                    
+                        <a href="javascript:;" class="" title="辽宁">辽</a>
+                    
+                        <a href="javascript:;" class="" title="吉林">吉</a>
+                    
+                        <a href="javascript:;" class="" title="黑龙江">黑</a>
+                    
+                        <a href="javascript:;" class="" title="江苏">苏</a>
+                    
+                        <a href="javascript:;" class="" title="浙江">浙</a>
+                    
+                        <a href="javascript:;" class="" title="安徽">皖</a>
+                    
+                        <a href="javascript:;" class="" title="福建">闽</a>
+                    
+                        <a href="javascript:;" class="" title="江西">赣</a>
+                    
+                        <a href="javascript:;" class="" title="山东">鲁</a>
+                    
+                        <a href="javascript:;" class="" title="河南">豫</a>
+                    
+                        <a href="javascript:;" class="" title="湖南">湘</a>
+                    
+                        <a href="javascript:;" class="" title="广东">粤</a>
+                    
+                        <a href="javascript:;" class="" title="湖北">鄂</a>
+                    
+                        <a href="javascript:;" class="" title="海南">琼</a>
+                    
+                        <a href="javascript:;" class="" title="四川">川</a>
+                    
+                        <a href="javascript:;" class="" title="贵州">黔</a>
+                    
+                        <a href="javascript:;" class="" title="云南">滇</a>
+                    
+                        <a href="javascript:;" class="" title="陕西">陕</a>
+                    
+                        <a href="javascript:;" class="" title="甘肃">甘</a>
+                    
+                        <a href="javascript:;" class="" title="青海">青</a>
+                    
+                        <a href="javascript:;" class="" title="广西">桂</a>
+                    
+                        <a href="javascript:;" class="" title="内蒙古">蒙</a>
+                    
+                        <a href="javascript:;" class="" title="西藏">藏</a>
+                    
+                        <a href="javascript:;" class="" title="宁夏">宁</a>
+                    
+                        <a href="javascript:;" class="" title="新疆">新</a>
+                    
+            </div>
+        </div>
+                <div class="item3Con" style="display: block;">
+                    <ul class="fix">
+                        <!-- 参数使用说明 （地区id，显示条数）   北京-->
+                        {volist name=":getSchoolByProvince_id(1,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(2,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(9,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}    
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(22,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(3,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(4,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(6,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(7,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(8,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        
+                        {volist name=":getSchoolByProvince_id(10,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(11,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(12,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(13,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(14,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(15,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(16,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(18,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(19,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(17,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(21,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(23,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+				
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(20,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(25,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(27,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(28,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(29,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(20,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(5,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(26,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(30,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}   
+                    </ul>
+                </div>
+            
+                <div class="item3Con" style="display: none;">
+                    <ul class="fix">
+                        {volist name=":getSchoolByProvince_id(31,3)" id="vo"}
+                            <li>
+                                <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank" title="{$vo.schoolName}">
+                                    <img data-src="" src="{$Request.domain}{$vo.schoolLogo}" alt="{$vo.schoolName}" /></a>
+                                <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+                                <p class="fix">
+                                    <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+                                    <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+                                    <a href="/ncdx/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+                                </p>
+                            </li>
+                        {/volist}
+                    </ul>
+                </div>     
+    </div>
+    <div class="item4 wrap">
+        <div class="item4Tit"><span><em>报名专业</em></span></div>
+        <div class="item4Con fix">
+            <div class="zyCon fr">
+                <ul class="fix fix1">
+                    {volist name="subjects" id="vo"}
+                        <li>
+                            <a href="{$Request.domain}/subject/{$vo.subjectId}.html" class="zyimg fl" target="_blank" title="{$vo.subjectName}">
+                                <img src="{$Request.domain}/{$vo.subjectImage}" alt="{$vo.subjectName}" /></a>
+                            <div class="zyinfo fl">
+                                <h3><a href="{$Request.domain}/subject/{$vo.subjectId}.html" target="_blank"  title="{$vo.subjectName}">{$vo.subjectName}</a></h3>
+                            </div>
+                        </li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="item5">
+	<div class="zlsp">
+        <div class="width-1150 clearfix">
+            <div class="xxzl fl">
+                <div class="clearfix tit">
+                  <b><a>报考指南</a></b>
+                    <ul>
+                      <li id="zsjy1" onmouseover="setTab('zsjy',1,4)" class="curr"><a></a><a>网上报名</a></li>
+                        <li id="zsjy2" onmouseover="setTab('zsjy',2,4)" class=""><a></a><a>报名流程</a></li>
+                        <li id="zsjy3" onmouseover="setTab('zsjy',3,4)" class=""><a></a><a >报名时间</a></li>
+                        <li id="zsjy4" onmouseover="setTab('zsjy',4,4)" class=""><a></a><a>报名条件</a></li>
+                        <!-- <li><a href="http://www.0791zikaow.com/ksxx/">更多</a></li> -->
+                    </ul>
+                </div>
+                <div class="xxzl-news" id="zsjy_1" style="display: block;">
+                    <ul>
+                        {volist name=":getArticleListByWhere(['category_id'=>19],16)" id="vo"}
+                        <li>
+                            <i>{:getAreaName($vo.province_id)}</i>
+                            <a href="{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" title="{$vo.title}" target="_blank">{$vo.title}
+                            </a>
+                            <span>{:time2Format($vo.add_time,'m-d')}</span>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+                <div class="xxzl-news" id="zsjy_2" style="display: none;">
+                    <ul>
+                        {volist name=":getArticleListByWhere(['category_id'=>20],16)" id="vo"}
+                        <li>
+                            <i>{:getAreaName($vo.province_id)}</i>
+                            <a href="{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" title="{$vo.title}" target="_blank">{$vo.title}
+                            </a>
+                            <span>{:time2Format($vo.add_time,'m-d')}</span>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+                <div class="xxzl-news" id="zsjy_3" style="display: none;">
+                    <ul>
+                        {volist name=":getArticleListByWhere(['category_id'=>21],16)" id="vo"}
+                        <li>
+                            <i>{:getAreaName($vo.province_id)}</i>
+                            <a href="{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" title="{$vo.title}" target="_blank">{$vo.title}
+                            </a>
+                            <span>{:time2Format($vo.add_time,'m-d')}</span>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+                <div class="xxzl-news" id="zsjy_4" style="display: none;">
+                    <ul>
+                        {volist name=":getArticleListByWhere(['category_id'=>22],16)" id="vo"}
+                        <li>
+                            <i>{:getAreaName($vo.province_id)}</i>
+                            <a href="{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" title="{$vo.title}" target="_blank">{$vo.title}
+                            </a>
+                            <span>{:time2Format($vo.add_time,'m-d')}</span>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+            <div class="rmsp fl">
+                <p class="clearfix tit"><b><a href="{$Request.domain}/cate/24.html">自考问答</a></b></p>
+                <ul>
+                    {volist name=":getArticleListByWhere(['category_id'=>24],9)" id="vo"}
+                    <li><a href="{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" title="{$vo.title}" target="_blank">{$vo.title}</a><span>{:time2Format($vo.add_time,'m-d')}</span></li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+    </div>
+	</div>
+ <script type="text/javascript" src="__JS__/js.js"></script>
+
+    <div class="foot_area">
+    <div>
+        <dl>
+            <dt>友情链接：</dt>
+            {volist name=":getFriendship_link()" id="vo"}
+                <dd><a href="{$vo.url}" target="_blank">{$vo.name}</a></dd>
+            {/volist}
+        </dl>
+    </div>
+</div>
+    <div class="foot_area">
+    <div>
+        <dl>
+            <dt>地区自考：</dt>
+            {volist name=":C2PY()" id="vo"}
+                <dd><a href="{$Request.domain}/dq/{$vo.dir}.html" target="_blank">{$vo.name}自考</a></dd>
+            {/volist}
+        </dl>
+    </div>
+</div>
+
+    <div class="foot">
+            <div>
+               <!--  <p class="about">
+                    <a href="/about/about" target="_blank">关于学赛</a>
+                    <a href="/about/mianze" target="_blank">免责申明</a>
+                    <a href="/about/sitemap" target="_blank">网站地图</a>
+                    <a href="/about/swhezuo" target="_blank">商务合作</a>
+                    <a href="/about/contact" target="_blank">联系我们</a>
+                </p> -->
+                <p>&nbsp;<a href="/" target="_blank" style="color: #999999;">自考报名网</a>&nbsp;&nbsp;版权所有&nbsp;&nbsp;©2018-2019&nbsp;&nbsp;湘ICP备10203241号-5&nbsp;&nbsp;<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43019002000673"target="_blank" style="color: #999999;"rel="nofollow">湘公网安备&nbsp;43019002000673号</a>&nbsp;&nbsp;<!-- <a href="/about/yyzz.htm" target="_blank" style="color: #999999;">营业执照</a></p> -->
+            </div>
+        </div>
+
+<input type="hidden" id="hidSearchID" value="3" />
+<input type="hidden" id="hidReadTypePath" value="zikao" />
+<link rel="stylesheet" type="text/css" href="{$Request.domain}__CSS__/indexxz.css">
+<div class="fixedR">
+    <img src="__IMAGES__/bmrk.png">
+    <div class="enrollInfo">
+        <ul>
+            <li>
+                <h3><span>*</span> 姓名：</h3>
+                <input type="text" id="enroll_name" placeholder="请输入你的真实姓名" class="name">
+            </li>
+            <li>
+                <h3><span>*</span> 联系方式：</h3>
+                <input type="tel" id="enroll_phone" placeholder="请输入你的联系方式（手机号）" class="tel" maxlength="11">
+            </li>
+            <li>
+                <h3><span>*</span> 报读类别：</h3>
+                <select id="enroll_readType" autocomplete="off" name="enroll_readType">
+                    <option value="1" selected>自学考试</option>
+                </select>
+            </li>
+            <li>
+                <h3>报名地区：</h3>
+                <select id="enroll_readArea" name="enroll_readArea">
+                    <option value="0">请选择</option>
+                    {volist name=":C2PY()" id="vo"}
+                        <option value="{$vo.Id}">{$vo.name}</option>
+                    {/volist}
+                </select>
+            </li>
+            <li>
+                <h3>验证码：</h3>
+                <div class="group">
+                    <input type="text" class="yzm" placeholder="看右侧->" id="enroll_verifycode">
+                    <img id="enroll_imgVerify" src="{:url('index/api/verify')}" alt="看不清？点击图片更换" title="看不清？点击图片更换" onclick="this.src=this.src+'?'" />
+                </div>
+            </li>
+        </ul>
+        <button type="submit" class="submit" onclick="save_enroll()">提交报名</button>
+    </div>
+</div>
+<script type="text/javascript">
+
+    function save_enroll(){
+        var data = {};
+        data.enroll_name = $("#enroll_name").val();
+        data.enroll_phone = $("#enroll_phone").val();
+        data.enroll_readArea = $("#enroll_readArea").val();
+        data.enroll_readType = $("#enroll_readType").val();
+        data.enroll_verifycode = $("#enroll_verifycode").val();
+        $.post("{:url('index/api/enroll')}",{data:data},function(e){
+            alert(e.msg)
+            if(e.code != 200){
+                
+                $("#enroll_imgVerify").click();
+                $("#enroll_verifycode").val('');
+                return false;
+            }else{
+                location.reload()
+            }
+        },'json')
+    }
+
+</script>
+
+</body>
+</html>

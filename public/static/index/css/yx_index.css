@@ -1,0 +1,19 @@
+.yx_dh ul{
+	overflow: hidden;
+}
+.yx_dh ul li{
+	float: left;
+}
+.yx_dh ul li a{
+	display: inline-block;
+    padding: 12px 29px;
+    font-size: 16px;
+    border: 1px solid transparent;
+    border-bottom-color: #ddd;
+    border-top-width: 3px;
+}
+ul.yx_dt li {
+    width: 260px;
+    float: left;
+    height: 20px;
+}

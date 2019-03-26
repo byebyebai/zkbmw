@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="cn">
+<head>
+	<meta charset="UTF-8">
+	<title>江西自考网上报名系统-江西自考网</title>
+	<meta name="keywords" content="江西自考网上报名,江西自考网"/>
+	<meta name="description" content="2019年江西自学考试网上报名系统已开通,考生可通过江西自考网上报名入口在线报名,可在线查询2019年江西成人高校专业招生计划,报考时间和条件等信息..." />
+	<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0">
+	<link rel="stylesheet" href="http://cs.jxcedu.com/static/index/css/wsbm.css">
+	<link rel="stylesheet" href="http://cs.jxcedu.com/static/index/css/lyz.wsbm.css">
+</head>
+<body>
+	<div id="width"></div>
+	<div id="top">
+		<div class="title">
+			<h1><a href="" title="江西自考网上报名系统" target="_self">江西自考网上报名系统</a></h1>
+		</div>
+		<div class="time" id="nowtime"></div>
+	</div>
+	<div id="header">
+		<a href="/" target="_blank">自考首页</a>
+		<a href="" class="active" target="_self">网上报名</a>
+		<a href="jx_cj.html" target="_self">成绩查询</a>
+	</div>
+	<div id="main">
+		<div class="content-left"></div>
+		<div class="content-right">
+			<div class="content_right_top">
+				江西自考报名须知：欢迎您使用江西自考网上报名系统，报名成功后,我们将会在24小时内与您取得联系，您提交的信息将会严格保密！本站提供的信息真实可靠!取得的文凭真实可查!国家教育部注册!学信网可查!!!<strong>注：以下标识为<font style="color:#f00;">*</font>为必填项</strong>
+			</div>
+			<form class="content_right_center" id="register">
+				<div class="form-title">基本信息</div>
+				<div class="input-item">
+					<label for="id">报名序号：</label>
+					<input type="text" id="id" value="(系统自动生成)" readonly>
+					<span></span>
+				</div>
+				<div class="input-item">
+					<label for="name">姓名：</label>
+					<input type="text" id="name" name="name" value="" maxlength="20" placeholder="请输入真实姓名">
+					<span>*</span>
+				</div>
+				<div class="input-item">
+					<label for="sex">性别：</label>
+					<select name="sex" id="sex">
+						<option value="">-请选择-</option>
+						<option value="男">男</option>
+						<option value="女">女</option>
+					</select>
+					<span></span>
+				</div>
+				<div class="input-item">
+					<label for="tel">联系电话：</label>
+					<input type="text" id="tel" name="tel" maxlength="11" value="" placeholder="请输入联系电话">
+					<span>*</span>
+				</div>
+				<div class="input-item">
+					<label for="birthday">出生日期：</label>
+					<input id="txtBeginDate" type="text" placeholder="请选择出生日期" name="birthday" />
+					<span></span>
+				</div>
+				<div class="input-item">
+					<label for="idcard">身份证号：</label>
+					<input type="text" id="idcard" name="idcard" value="" maxlength="18" placeholder="请输入身份证号码">
+					<span></span>
+				</div>
+				<div class="input-item">
+					<label for="school">毕业院校：</label>
+					<input type="text" id="school" name="school" maxlength="30" value="">
+					<span></span>
+				</div>
+				<div class="input-item">
+					<label for="max_level">最高学历：</label>
+					<select name="max_level">
+						<option value="">-请选择-</option>
+						<option value="高中以下">高中以下</option>
+						<option value="高中">高中</option>
+						<option value="专科">专科</option>
+						<option value="本科">本科</option>
+						<option value="本科以上">本科以上</option>
+					</select>
+					<span></span>
+				</div>
+				<div class="fen"></div>
+				<div class="form-title">报考信息</div>
+				<div class="select-item">
+					<label for="">报考层次：</label>
+					<select name="bk_level">
+						<option value="">-层次选择-</option>
+						<option value="专科">专科</option>
+						<option value="本科">本科</option>
+					</select>
+				</div>
+				<div class="select-item">
+					<label for="">报考院校：</label>
+					<select name="bk_school">
+						<option value="">-院校选择-</option>
+						<option value="江西大学">江西大学</option>
+						<option value="合肥工业大学">合肥工业大学</option>
+						<option value="江西农业大学">江西农业大学</option>
+						<option value="江西医科大学">江西医科大学</option>
+						<option value="江西建筑大学">江西建筑大学</option>
+						<option value="江西工业大学">江西工业大学</option>
+						<option value="江西理工大学">江西理工大学</option>
+						<option value="江西工程大学">江西工程大学</option>
+						<option value="江西师范大学">江西师范大学</option>
+						<option value="江西财经大学">江西财经大学</option>
+						<option value="淮北师范大学">淮北师范大学</option>
+						<option value="江西中医药大学">江西中医药大学</option>
+						<option value="中国科学技术大学">中国科学技术大学</option>
+					</select>
+				</div>
+				<div class="select-item">
+					<label for="">报考专业：</label>
+					<select name="bk_zhuanye">
+						<option value="">-专业选择-</option>
+						<option value="会计">会计</option>
+						<option value="法律">法律</option>
+						<option value="英语">英语</option>
+						<option value="金融">金融</option>
+						<option value="护理学">护理学</option>
+						<option value="广告学">广告学</option>
+						<option value="市场营销">市场营销</option>
+						<option value="旅游管理">旅游管理</option>
+						<option value="行政管理">行政管理</option>
+						<option value="小学教育">小学教育</option>
+						<option value="学前教育">学前教育</option>
+						<option value="动画设计">动画设计</option>
+						<option value="建筑工程">建筑工程</option>
+						<option value="计算机网络">计算机网络</option>
+						<option value="行政管理学">行政管理学</option>
+						<option value="汉语言文学">汉语言文学</option>
+						<option value="工商企业管理">工商企业管理</option>
+						<option value="环境艺术设计">环境艺术设计</option>
+						<option value="汽车服务工程">汽车服务工程</option>
+						<option value="工程造价管理">工程造价管理</option>
+						<option value="人力资源管理">人力资源管理</option>
+						<option value="计算机及其应用">计算机及其应用</option>
+						<option value="机电一体化工程">机电一体化工程</option>
+					</select>
+				</div>
+				<div class="btn-group">
+					<input type="button" class="btn btn-confirm" value="确认提交">
+					<input type="reset" class="btn" value="重置表单">
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="http://cs.jxcedu.com/static/index/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="http://cs.jxcedu.com/static/index/js/lyz.calendar.min.js"></script>
+	<script>
+    $(function () {
+    	function getProjectPath() {
+	        var curWwwPath = window.document.location.href;
+	        var pathName = window.document.location.pathname;
+	        var pos = curWwwPath.indexOf(pathName);
+	        var localhostPaht = curWwwPath.substring(0, pos);
+	        return localhostPaht
+	            + pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+	    }
+	    var Url = getProjectPath();//获取Url地址
+		area = Url.replace('http://cs.jxcedu.com/','');
+
+    	$(".btn-confirm").click(function(){
+            var form = $("#register").serializeArray();
+            
+            var jsonData = {}
+            $.each(form,function(i,o){
+                jsonData[form[i]['name']] = form[i]['value'];
+            })
+            if(jsonData.sex == ''){
+            	$("input[name='sex']").css('border','1px solid #e0e0e0');
+            }
+            if(jsonData.name.length == 0){
+            $("input[name='name']").css('border','1px solid red');
+                return false;
+            }else{
+                $("input[name='name']").css('border','1px solid #e0e0e0');
+            }
+            if(!/^1[34578]\d{9}$/.test(jsonData.tel)){
+                $("input[name='tel']").css('border','1px solid red');
+                return false;
+            }else{
+                $("input[name='tel']").css('border','1px solid #e0e0e0');
+            }
+            jsonData.area = area;
+
+            $.post("/index/api/register",{jsonData},function(result){
+    			alert(result.msg);
+                if(result.code ==200){
+                    
+                    document.getElementById("register").reset();
+
+                }
+
+            },'json');
+        })
+        
+
+        $("#txtBeginDate").calendar({
+            controlId: "divDate",                  // 弹出的日期控件ID，默认: $(this).attr("id") + "Calendar"
+            speed: 200,                            // 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000),默认：200
+            complement: true,                      // 是否显示日期或年空白处的前后月的补充,默认：true
+            readonly: true,                        // 目标对象是否设为只读，默认：true
+            upperLimit: new Date(),                // 日期上限，默认：NaN(不限制)
+            lowerLimit: new Date("1900/01/01"),    // 日期下限，默认：NaN(不限制)
+            callback: function () {                // 点击选择日期后的回调函数
+                // alert("您选择的日期是：" + $("#txtBeginDate").val());
+            }
+        });
+        $("#txtEndDate").calendar();
+    });
+	</script>
+	<script type="text/javascript">
+			function showTime(){ 
+	            var date = new Date();            //获取时间对象
+	            var year = date.getFullYear();    //获取年
+	            var month = date.getMonth()+1;    //获取月份。获取的月份比真实的月份少一个月。所以这里得+1 
+	            var day = date.getDate();         //获取日
+	            var week = date.getDay();         //返回0--6。当中0表示星期天，1--6代表星期一到星期六
+	            var weekStr="未知"; 
+	            var hours = date.getHours();      //获取时（24小时制）
+	            var minutes = date.getMinutes();  //获取分
+	            var seconds = date.getSeconds();  //获取秒
+	            // var milliseconds = date.getMilliseconds();//获得毫秒         
+	            //处理星期的显示           
+	            switch(week){
+	                    case 1:
+	                        weekStr="一 "
+	                    break;
+	                    case 2:
+	                        weekStr="二 "
+	                    break;
+	                    case 3:
+	                        weekStr="三 "
+	                    break;
+	                    case 4:
+	                        weekStr="四 "
+	                    break;
+	                    case 5:
+	                        weekStr="五 "
+	                    break;
+	                    case 6:
+	                        weekStr="六 "
+	                    break;
+	                    default:
+	                      weekStr="日 ";
+	               }
+	            document.getElementById("nowtime").innerHTML = 
+	            year + "年" + month + "月" + day + "日 "+"  <span>星期"+weekStr+hours + "</span>:" + minutes + ":" + seconds  
+	            // + ":"+ milliseconds; 
+	        }
+		setInterval("showTime()",10);
+	</script>
+</body>
+</html>

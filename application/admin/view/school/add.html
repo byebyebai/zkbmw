@@ -1,0 +1,277 @@
+<style type="text/css">
+	.row .tag{
+		position: relative;
+		height: 26px;
+		overflow: hidden;
+	}
+	.row .buttonCheck{
+		position: absolute;
+		right: -16px;
+		top: 7px;
+		cursor: pointer;
+	}
+</style>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/plugins/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            {include file="template/form_header" /}
+            <form id="dataForm" class="form-horizontal dataForm" action="" method="post" enctype="multipart/form-data">
+                <div class="box-body">
+                    <div class="fields-group">
+                        {if isset($info)}
+                        <input id="schoolId" name="schoolId" value="{$info.schoolId}" hidden placeholder="请勿修改">
+                        {/if}
+                        <div class="form-group">
+                            <label for="schoolName" class="col-sm-2 control-label">学校名称</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                    <input maxlength="20" id="schoolName" name="schoolName" value="{$info.schoolName|default=''}"
+                                           class="form-control" placeholder="请输入学校名称">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="seo_keywords" class="col-sm-2 control-label">seo关键词设置</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon"></span>
+                                    <input id="seo_keywords" name="seo_keywords" value="{$info.seo_keywords|default=''}"
+                                           class="form-control" placeholder="请输入关键词">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="seo_description" class="col-sm-2 control-label">seo描述设置</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group">
+                                    <textarea class="form-control" rows="3" cols="80" id="seo_description" name="seo_description" placeholder="请输入seo描述 ...">{$info.seo_description|default=''}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category_id" class="col-sm-2  control-label">选择地区</label>
+                            <div class="col-sm-2 col-md-1">
+                                <div>
+                                    <select class="form-control" name="province_id">
+                                        {volist name="$area" id="vo"}
+                                            <option value="{$vo.Id}" {if isset($info)}{if condition="$info.province_id eq $vo.Id"}selected{/if}{/if}>{$vo.name}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-md-2">
+                                <div>
+                                    <select class="form-control" name="city_id">
+                                        <option value="">默认</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="schoolLogo" class="col-sm-2 control-label">学校Logo</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group file-caption-main">
+                                    <div tabindex="500" class="form-control file-caption  kv-fileinput-caption">
+                                        <div class="file-caption-name" id="input-filename-headimg">
+                                        </div>
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <div tabindex="500" class="btn btn-primary btn-file">
+                                            <i class="glyphicon glyphicon-folder-open"></i>
+                                            <span class="hidden-xs">浏览</span>
+                                            <input type="file" class="form-input-image"
+                                                   data-preview="image-preview-headimg"
+                                                   data-showname="input-filename-headimg" name="schoolLogo" id="schoolLogo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group file-caption-main">
+                                    <img id="image-preview-headimg" src="{$info.schoolLogo|default='/static/admin/images/default_pic.png'}"
+                                         style="max-width: 150px;max-height: 150px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="schoolImage" class="col-sm-2 control-label">学校封面</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group file-caption-main">
+                                    <div tabindex="500" class="form-control file-caption  kv-fileinput-caption">
+                                        <div class="file-caption-name" id="input-filename-schoolImage">
+                                        </div>
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <div tabindex="500" class="btn btn-primary btn-file">
+                                            <i class="glyphicon glyphicon-folder-open"></i>
+                                            <span class="hidden-xs">浏览</span>
+                                            <input type="file" class="form-input-image"
+                                                   data-preview="image-preview-schoolImage"
+                                                   data-showname="input-filename-schoolImage" name="schoolImage" id="schoolImage">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group file-caption-main">
+                                    <img id="image-preview-schoolImage" src="{$info.schoolImage|default='/static/admin/images/default_pic.png'}"
+                                         style="max-width: 150px;max-height: 150px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="schoolDescribe" class="col-sm-2 control-label">学校描述</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group">
+                                	<textarea class="form-control" rows="3" cols="80" id="schoolDescribe" name="schoolDescribe" placeholder="请输入描述 ...">{$info.schoolDescribe|default=''}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category_id" class="col-sm-2  control-label">选择层次</label>
+                            <div class="col-sm-2 col-md-1">
+                                <div>
+                                    <select class="form-control" name="level">
+                                        {volist name=":subjectLevel()"  id="vo" key="k"}
+                                            <option value="{$k-1}" {if isset($info)}{if condition="$info.level eq $k-1"}selected{/if}{/if}>{$vo}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group tag">
+                            <label for="subject" class="col-sm-2 control-label">专业选择</label>
+                            <div class="col-sm-10 col-md-4 checkbox-item">
+                            	<span class="buttonCheck">展开</span>
+                            	<div class="checkbox">
+                            	{if isset($schoolsubject)}
+                                        
+                                    {volist name='subjects' id="vo"}
+                                        {in name="$vo.subjectId" value="$schoolsubjectIds"}
+                                            <div class="col-md-4">
+                                                <input type="checkbox" class="minimal-red" name="subjects[]" checked value="{$vo.subjectId}">{$vo.subjectName}【{:subjectLevel($vo.subjectLevel)}】
+                                            </div>
+                                            {else /}
+                                            <div class="col-md-3">
+                                                <input type="checkbox" class="minimal-red" name="subjects[]"  value="{$vo.subjectId}">{$vo.subjectName}【{:subjectLevel($vo.subjectLevel)}】
+
+                                            </div>
+                                        {/in}
+                                    {/volist}
+                                    
+                            	{else /}
+                                    {volist name='subjects' id="vo"}
+                                        <div class="col-md-4">
+                                            <input type="checkbox" class="minimal-red" name="subjects[]" value="{$vo.subjectId}">{$vo.subjectName}【{:subjectLevel($vo.subjectLevel)}】
+                                        </div>
+                                    {/volist}
+
+                            	{/if}
+                                   	
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                {include file="template/form_footer" /}
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    var url="{:url('extend/ueserver')}";
+    //实例化编辑器
+    var ue = UE.getEditor('editor',{
+        serverUrl :url,
+        imageUrlPrefix:"{$Request.domain}"
+    });
+</script>
+<script type="text/javascript">
+	var off = false
+	$(".buttonCheck").on('click',function(){
+		if(off == false){
+			off = true
+			$(".tag").css('overflow','inherit');
+			$(".checkbox-item").css('display','block');
+			$(this).html('收起');
+		}else{
+			off = false
+			$(".tag").css('overflow','hidden');
+			$(this).html('展开');
+		}
+	})
+</script>
+<script type="text/javascript">
+	var level1_id = $("select[name='level1']").val();
+	if(level1_id !== ''){
+		var level2 = "{if isset($info.level1)}{$info.level2}{/if}";
+		$.post("{:url('article/getAreaLevelArticleCategory')}",{id:level1_id},function(e){
+	        var html = '<option value="">默认</option>'
+		    $.each(e.data,function(n,item){
+		    	if(item.id == level2){
+		    		html += "<option value="+item.id+" selected='selected'>"+item.category_name+"</option>"
+		    	}else{
+		    		html += "<option value="+item.id+">"+item.category_name+"</option>"
+		    	}
+		    })
+		    $("select[name='level2']").append(html);
+	    });
+	}
+    var city_id = $("select[name='province_id']").val();
+    if(city_id !== ''){
+        var cityId = "{if isset($info.city_id)}{$info.city_id}{/if}";
+        $.post("{:url('article/getLevel2List')}",{id:city_id},function(e){
+
+            var html = '<option value="">默认</option>'
+            $.each(e.data,function(n,item){
+                if(item.Id == cityId){
+                    html += "<option value="+item.Id+" selected='selected'>"+item.name+"</option>"
+                }else{
+                    html += "<option value="+item.Id+">"+item.name+"</option>"
+                }
+            })
+            $("select[name='city_id']").append(html);
+        });
+    }
+
+	$("select[name='level1']").change(function(){
+		var id = $(this).val();
+		if(id == '') {return false;}
+		$("select[name='level2']").empty();
+		$.post("{:url('article/getAreaLevelArticleCategory')}",{id:id},function(e){
+	        var html = ''
+	        var html = '<option value="">默认</option>'
+		    $.each(e.data,function(n,item){
+		      html += "<option value="+item.id+">"+item.category_name+"</option>"
+		    })
+		    $("select[name='level2']").append(html);
+	    });
+	})
+    //处理地区联动
+    $("select[name='province_id']").change(function(){
+        var id = $(this).val();
+        $("select[name='city_id']").empty();
+        $.post("{:url('article/getLevel2List')}",{id:id},function(e){
+            var html = ''
+            var html = '<option value="">默认</option>'
+            $.each(e.data,function(n,item){
+              html += "<option value="+item.Id+">"+item.name+"</option>"
+            })
+            $("select[name='city_id']").append(html);
+        });
+        
+    })
+	
+</script>

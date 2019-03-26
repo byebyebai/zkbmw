@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="__CSS__/dq_gg.css" />
+	<link rel="stylesheet" href="__CSS__/crgk_area.css" />
+	<link rel="stylesheet" href="__CSS__/dq_index.css" />
+    <script type="text/javascript" src="__JS__/jquery.min.js"></script>
+    <script type="text/javascript" src="__JS__/javascript.js"></script>
+    <title>{$ohter.title|default=''}</title>
+    <meta name="keywords" content="{$ohter.seo_keywords|default=''}">
+    <meta name="description" content="{$ohter.seo_describe|default=''}">
+</head>
+<body>
+<div class="top">
+    <div>
+       Hi，欢迎来到<a href="#"style="float: none;" >自考报名网</a>
+        <p>
+            <a href="#">网站地图</a>
+            <a href="{$Request.domain}/wsbm.html">网上报名</a>
+            <a href="javascript:void(0);" onclick="addFavorite2()"  title="收藏本站到收藏夹">加入收藏</a>
+        </p>
+    </div>
+</div>
+<div class="head">
+    <h1><a href="#">{$area.name|default=''}自考报名网</a></h1>
+	<ul>
+		<li><a href="#" class="wsbm">网上报名</a></li>
+		<li><a href="#" class="zy">报名专业</a></li>
+		<li><a href="#" class="yx">报考院校</a></li>
+		<li><a href="#" class="sj">书籍材料</a></li>
+	</ul>
+    <div class="search">
+        <input type="text" id="search_content">
+        <a href="javascript:;" onclick="find()">
+            <img src="__IMAGES__/search.png" alt="">
+        </a>
+    </div>
+</div>
+<div class="menu">
+    <ul>
+        <li {notempty name="$nav"}{if condition="$nav eq 'index'"}class="active"{/if}{else /}class="active"{/notempty}><a href="{$Request.domain}">自考报名</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq 'school'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/school/index.html" target="_blank">报考院校</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq 'subject'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/subject/index.html" target="_blank">报名专业</a></li>
+        <li><a href="{$Request.domain}/wsbm.html" target="_blank">网上报名</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq '21'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/cate/21.html" target="_blank">报考时间</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq '20'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/cate/20.html" target="_blank">报名流程</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq '22'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/cate/22.html" target="_blank">报名条件</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq '17'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/cate/17.html" target="_blank">报考资讯</a></li>
+    </ul>
+</div>
+<div class="area wrap fix">
+	<!-- <span>各地区：</span>
+
+	<a href="/bjzikao/" target="_blank" title="南昌">南昌</a>
+
+	<a href="/tjzikao/" target="_blank" title="九江">九江</a>
+
+	<a href="/shzikao/" target="_blank" title="上饶">上饶</a>
+
+	<a href="/cqzikao/" target="_blank" title="吉安">吉安</a>
+
+	<a href="/hebzikao/" target="_blank" title="景德镇">景德镇</a>
+
+	<a href="/sxizikao/" target="_blank" title="新余">新余</a>
+
+	<a href="/lnzikao/" target="_blank" title="赣州">赣州</a>
+
+	<a href="/jlzikao/" target="_blank" title="抚州">抚州</a>
+
+	<a href="/hljzikao/" target="_blank" title="萍乡">萍乡</a>
+
+	<a href="/jszikao/" target="_blank" title="鹰潭">鹰潭</a>
+
+	<a href="/zjzikao/" target="_blank" title="宜春">宜春</a>  -->  
+</div>
+  <div class="item1 wrap fix">
+        <a href="{$ohter.url}" class="item1img fl">
+            <img src="{$Request.domain}/{$ohter.thumb}" alt="自学考试报名入口">
+
+        </a>
+        <div class="touTiao fl">
+            <div class="tTitle">{$area.name}自考报名</div>
+            <div class="touTop">
+            	{volist name="news_list" id='vo' length='1'}
+                <a href="{$Request.domain}/{$area.dir}/info_{$vo.id}.html" target="_blank">
+                    <h3>{$vo.title}</h3>
+                    <p>{$vo.describe}</p>
+                </a>
+                {/volist}   
+            </div>
+            <ul class="fix">
+				{volist name="news_list" id="vo" offset='2' length='7'}
+                <dd>
+                    <li>
+                        <a href="{$Request.domain}/{$area.dir}/info_{$vo.id}.html" target="_blank">{$vo.title}</a>
+                        <span>{$vo.add_time}</span>
+                    </li>
+                </dd>
+                {/volist} 
+            </ul>
+        </div>
+        <div class="hotYx fr">
+            <h2>报考院校</h2>
+            <ul>
+				{volist name="school_list" id="vo"}
+                <li class="hot">
+                    <a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">
+                        <em>{$vo.schoolName}</em>
+                    </a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+
+    <div class="item2 wrap fix">
+        <div class="item2Con fl">
+            <div class="item2Tit"><span>报名动态</span><a href="/bjzikao/news/" target="_blank">更多></a></div>
+            <ul class="fix">
+                {volist name="hot_list" id="vo"}
+                <li>
+                    <a href="{$Request.domain}/{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" target="_blank">
+                        {$vo.title}
+                    </a>
+                </li>
+                {/volist} 
+            </ul>
+        </div>
+        <div class="item2Cr fr">
+             <div class="guide">
+                <h2>考试<span>指南</span></h2>
+                <ul class="fix">
+                    <li><a href="{$Request.domain}/cate/{notempty name='$province_id'}{$province_id}-{/notempty}22.html" target="_blank">报考条件</a></li>
+                    <li><a href="{$Request.domain}/cate/{notempty name='$province_id'}{$province_id}-{/notempty}21.html" target="_blank">报名时间</a></li>
+                    <li><a href="{$Request.domain}/cate/{notempty name='$province_id'}{$province_id}-{/notempty}20.html" target="_blank">报名流程</a></li>
+                    <li><a href="{$Request.domain}/cate/{notempty name='$province_id'}{$province_id}-{/notempty}25.html" target="_blank">考试时间</a></li>
+                    <li><a href="{$Request.domain}/cate/{notempty name='$province_id'}{$province_id}-{/notempty}26.html" target="_blank">报考材料</a></li>
+                    <li><a href="{$Request.domain}/{notempty name='$province_id'}{:c2PyByAreaid($province_id)}/{/notempty}wsbm.html" target="_blank">报名入口</a></li>
+                </ul>
+            </div>
+
+
+            <div class="item2Tit"><span>热门标签</span></div>
+            <div id="tagscloud">
+				</div>
+        </div>
+    </div>
+
+    <div class="item3 wrap">
+        <div class="item3Tit"><span><em>{$area.name}自考报考院校</em></span></div>
+        <div class="item3Con">
+            <ul class="fix">
+            	{volist name="school_list" id="vo" length="6"}
+	                <li>
+	                    <a href="{$Request.domain}/school/{$vo.schoolId}.html" class="yxpic" target="_blank">
+	                        <img src="{$Request.domain}/{$vo.schoolLogo}" alt="" /></a>
+	                    <h3><a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">{$vo.schoolName}</a></h3>
+	                    <p class="fix">
+	                        <a href="{$Request.domain}/school_jz/{$vo.schoolId}.html" class="zsjz fl" target="_blank">招生简章</a>
+	                        <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" class="zkzy fl" target="_blank">主考专业</a>
+	                        <a href="/bjsf/enroll/" class="zxbm fr" target="_blank">在线报名</a>
+	                    </p>
+	                </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+
+    <div class="item4 wrap fix">
+        <div class="item4Con fl">
+            <div class="item2Tit"><span>报考专业</span><a href="/bjzikao/major/" target="_blank">更多></a></div>
+            <div class="zyCon">
+                <ul class="fix">
+					{volist name="subject" id="vo"}
+	                    <li>
+	                        <a href="{$Request.domain}/subject/{$vo.subjectId}.html" class="zyimg fl" target="_blank">
+	                            <img src="{$Request.domain}/{$vo.subjectImage}" alt="{$vo.subjectName}" /></a>
+	                        <div class="zyinfo fl">
+	                            <h3><a href="{$Request.domain}/subject/{$vo.subjectId}.html" target="_blank">{$vo.subjectName}</a></h3>
+	                        </div>
+	                    </li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+        <div class="hotZy fr">
+            <h2>热门专业</h2>
+            <ul>
+            	{volist name='subject' id='vo' }
+                <li class="hot">
+                    <a href="{$Request.domain}/subject/{$vo.subjectId}.html" target="_blank">
+                        <em>{$vo.subjectName}</em>
+                    </a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+
+    <div class="item5 wrap fix">
+        <div class="zlsp">
+        <div class="width-1150 clearfix">
+            <div class="xxzl fl">
+                <div class="clearfix tit">
+                  <b><a href="">报考指南</a></b>
+                    <ul>
+                      <li id="zsjy1" onmouseover="setTab('zsjy',1,4)" class="curr"><a href="">网上报名</a></li>
+                        <li id="zsjy2" onmouseover="setTab('zsjy',2,4)" class=""><a href="">报名流程</a></li>
+                        <li id="zsjy3" onmouseover="setTab('zsjy',3,4)" class=""><a href="">报名时间</a></li>
+                        <li id="zsjy4" onmouseover="setTab('zsjy',4,4)" class=""><a href="">报名条件</a></li>
+                        <!-- <li><a href="http://www.0791zikaow.com/ksxx/">更多</a></li> -->
+                    </ul>
+                </div>
+                <div class="xxzl-news" id="zsjy_1" style="display: block;">
+                    <ul>
+           				{volist name=":getArticleListByWhere(['category_id'=>19,'province_id'=>$province_id],16)" id="vo"}
+                        <li>
+                            <i>{:getAreaName($vo.province_id)}</i>
+                            <a href="{$Request.domain}/{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" title="{$vo.title}" target="_blank">{$vo.title}
+                            </a>
+                            <span>{:time2Format($vo.add_time,'m-d')}</span>
+                        </li>
+                        {/volist}
+
+                    </ul>
+                </div>
+                <div class="xxzl-news" id="zsjy_2" style="display: none;">
+                    <ul>
+              			{volist name=":getArticleListByWhere(['category_id'=>20,'province_id'=>$province_id],16)" id="vo"}
+                        <li>
+                            <i>{:getAreaName($vo.province_id)}</i>
+                            <a href="{$Request.domain}/{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" title="{$vo.title}" target="_blank">{$vo.title}
+                            </a>
+                            <span>{:time2Format($vo.add_time,'m-d')}</span>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+                <div class="xxzl-news" id="zsjy_3" style="display: none;">
+                    <ul>
+     					
+     					{volist name=":getArticleListByWhere(['category_id'=>21,'province_id'=>$province_id],16)" id="vo"}
+                        <li>
+                            <i>{:getAreaName($vo.province_id)}</i>
+                            <a href="{$Request.domain}/{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" title="{$vo.title}" target="_blank">{$vo.title}
+                            </a>
+                            <span>{:time2Format($vo.add_time,'m-d')}</span>
+                        </li>
+                        {/volist}
+
+                    </ul>
+                </div>
+                <div class="xxzl-news" id="zsjy_4" style="display: none;">
+                    <ul>
+                  		{volist name=":getArticleListByWhere(['category_id'=>22,'province_id'=>$province_id],16)" id="vo"}
+                        <li>
+                            <i>{:getAreaName($vo.province_id)}</i>
+                            <a href="{$Request.domain}/{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" title="{$vo.title}" target="_blank">{$vo.title}
+                            </a>
+                            <span>{:time2Format($vo.add_time,'m-d')}</span>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+            <div class="rmsp fl">
+                <p class="clearfix tit"><b><a href="">自考问答</a></b></p>
+                <ul>
+                	{volist name=":getArticleListByWhere(['category_id'=>24,'province_id'=>$province_id],9)" id="vo"}
+                    <li><a href="{$Request.domain}/{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" title="{$vo.title}" target="_blank">{$vo.title}</a><span>{:time2Format($vo.add_time,'m-d')}</span></li>
+                    {/volist}
+                </ul>      
+            </div>
+        </div>
+    </div>
+    </div>
+ <script type="text/javascript" src="__JS__/js.js"></script>
+</div>
+    <div class="foot_area">
+    <div>
+        <dl>
+            <dt>地区自考：</dt>
+            {volist name=":C2PY()" id="vo"}
+                <dd><a href="{$Request.domain}/dq/{$vo.dir}.html" target="_blank">{$vo.name}自考</a></dd>
+            {/volist}
+        </dl>
+    </div>
+</div>
+
+<div class="foot">
+    <div>
+        <!-- <p class="about">
+            <a href="/about/about" target="_blank">关于学赛</a>
+            <a href="/about/mianze" target="_blank">免责申明</a>
+            <a href="/about/sitemap" target="_blank">网站地图</a>
+            <a href="/about/swhezuo" target="_blank">商务合作</a>
+            <a href="/about/contact" target="_blank">联系我们</a>
+        </p> -->
+        <p>&nbsp;<a href="/" target="_blank" style="color: #999999;">自考报名网</a>&nbsp;&nbsp;版权所有&nbsp;&nbsp;©2018-2019&nbsp;&nbsp;赣ICP备10203241号-5&nbsp;&nbsp;<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43019002000673"target="_blank" style="color: #999999;"rel="nofollow">湘公网安备&nbsp;43019002000673号</a>&nbsp;&nbsp;
+            <!-- <a href="/about/yyzz.htm" target="_blank" style="color: #999999;">营业执照</a></p> -->
+    </div>
+</div>
+
+<input type="hidden" id="hidSearchID" value="3" />
+
+<link rel="stylesheet" type="text/css" href="__CSS__/indexxz.css">
+<div class="fixedR">
+    <img src="__IMAGES__/bmrk.png">
+    <div class="enrollInfo">
+        <ul>
+            <li>
+                <h3><span>*</span> 姓名：</h3>
+                <input type="text" id="enroll_name" placeholder="请输入你的真实姓名" class="name">
+            </li>
+            <li>
+                <h3><span>*</span> 联系方式：</h3>
+                <input type="tel" id="enroll_phone" placeholder="请输入你的联系方式（手机号）" class="tel" maxlength="11">
+            </li>
+            <li>
+                <h3><span>*</span> 报读类别：</h3>
+                <select id="enroll_readType" name="enroll_readType">
+                    <!-- <option value="0">请选择</option> -->
+                    
+                            <option value="1" selected="selected">自学考试</option>
+                </select>
+            </li>
+            <li>
+                <h3>报名地区：</h3>
+                <select id="enroll_readArea" name="enroll_readArea">
+                    <option value="0">请选择</option>
+                    {volist name=":C2PY()" id="vo"}
+                        <option value="{$vo.Id}">{$vo.name}</option>
+                    {/volist}
+                </select>
+            </li>
+            <li>
+                <h3>验证码：</h3>
+                <div class="group">
+                    <input type="text" class="yzm" placeholder="看右侧->" id="enroll_verifycode">
+                    <img id="enroll_imgVerify" src="{:url('index/api/verify')}" alt="看不清？点击图片更换" title="看不清？点击图片更换" onclick="this.src=this.src+'?'" />
+                </div>
+            </li>
+        </ul>
+        <button type="submit" class="submit" onclick="save_enroll()">提交报名</button>
+    </div>
+</div>
+<script type="text/javascript">
+
+    function save_enroll(){
+        var data = {};
+        data.enroll_name = $("#enroll_name").val();
+        data.enroll_phone = $("#enroll_phone").val();
+        data.enroll_readArea = $("#enroll_readArea").val();
+        data.enroll_readType = $("#enroll_readType").val();
+        data.enroll_verifycode = $("#enroll_verifycode").val();
+        $.post("{:url('index/api/enroll')}",{data:data},function(e){
+            alert(e.msg)
+            if(e.code != 200){
+                
+                $("#enroll_imgVerify").click();
+                $("#enroll_verifycode").val('');
+                return false;
+            }else{
+                location.reload()
+            }
+        },'json')
+    }
+
+</script>
+<input type="hidden" id="hidEnrollReadAreaID" value="0" />
+</body>
+</html>

@@ -1,0 +1,714 @@
+﻿/* CSS Document */
+*, dl, dt {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    color: #666;
+    background: #fff;
+    overflow-x: hidden;
+    min-width: 1000px;
+    font-family: "Microsoft YaHei", "微软雅黑", "SimHei", "黑体";
+}
+
+img {
+    border: none;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+    cursor: pointer;
+    outline: none;
+}
+
+    a:hover { /* -webkit-transition: all 0.3s ease; transition: all 0.3s ease;*/
+        text-decoration: none;
+        outline: 0;
+    }
+
+input, select, button, textarea {
+    font-family: microsoft yahei;
+    vertical-align: middle;
+    border: none;
+    color: #666;
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6, h7, b, label, dt {
+    font-weight: normal;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+i, em {
+    font-style: normal;
+}
+
+.fix {
+    zoom: 1;
+}
+
+    .fix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+.fl {
+    float: left;
+    display: inline;
+}
+
+.fr {
+    float: right;
+    display: inline;
+}
+
+.pr {
+    position: relative;
+}
+
+.pa {
+    position: absolute;
+}
+
+.wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+/*头部*/
+.topbar {
+    height: 40px;
+    line-height: 40px;
+    background: #eee;
+    font-size: 14px;
+    color: #64686a;
+}
+
+    .topbar a {
+        color: #64686a;
+        margin-left: 30px;
+    }
+
+.headerInner {
+    padding: 26px 0;
+}
+
+.logo {
+    margin-right: 20px;
+}
+
+    .logo img {
+        display: block;
+    }
+
+.chanel {
+    font-size: 20px;
+    color: #2e3639;
+    height: 26px;
+    line-height: 22px;
+    border-left: 1px solid #f5f5f5;
+    padding-left: 10px;
+    margin-top: 9px;
+    margin-right: 12px;
+}
+
+.province {
+    font-size: 16px;
+    color: #2e3639;
+    line-height: 22px;
+    border-left: 1px solid #f5f5f5;
+    padding-left: 10px;
+    margin-top: 9px;
+}
+
+.change {
+    margin-left: 9px;
+    color: #25a3fd;
+}
+
+.keyword {
+    padding-top: 7px;
+    width: 195px;
+}
+
+    .keyword a {
+        display: inline-block;
+        font-size: 12px;
+        color: #999;
+        height: 15px;
+        line-height: 15px;
+        padding: 0 4px;
+        background: #eee;
+        margin-right: 6px;
+    }
+
+        .keyword a.special {
+            background: #08a7e6;
+            color: #fff;
+        }
+
+.nav {
+    background: url(../images/navbg.jpg) no-repeat center;
+    height: 46px;
+    line-height: 46px;
+}
+
+    .nav li {
+        float: left;
+        display: inline;
+    }
+
+        .nav li a {
+            display: block;
+            font-size: 16px;
+            color: #fff;
+            padding: 0 35px;
+        }
+
+            .nav li a:hover, .nav li.current a {
+                background: url(../images/navbg_hover.png) repeat;
+            }
+/*地区*/
+.area {
+    line-height: 24px;
+    padding: 14px 0 4px 65px;
+    position: relative;
+    font-size: 14px;
+    color: #666;
+    width: 930px;
+}
+
+    .area span {
+        position: absolute;
+        top: 14px;
+        left: 0;
+    }
+
+    .area a {
+        float: left;
+        margin-right: 29px;
+        margin-bottom: 10px;
+    }
+
+        .area a:hover {
+            color: #25a3fd;
+        }
+/*底部*/
+.footer {
+    background: #eee;
+    text-align: center;
+    padding: 35px 0 15px;
+}
+
+.friendLink {
+    font-size: 14px;
+    color: #666;
+}
+
+    .friendLink span {
+        margin-right: 10px;
+    }
+
+    .friendLink a {
+        color: #666;
+        margin-right: 36px;
+    }
+
+        .friendLink a:last-child {
+            margin-right: 0;
+        }
+
+.footerNav {
+    margin: 50px 0 10px;
+}
+
+    .footerNav a {
+        font-size: 14px;
+        color: #999;
+        margin: 0 17px;
+    }
+
+.copyright {
+    font-size: 12px;
+    color: #999;
+}
+
+    .copyright a {
+        color: #999;
+    }
+/* 公共顶部样式 */
+
+.top > div {
+    width: 1000px;
+    margin:0 auto;
+}
+
+.top {
+    width: 100%;
+    height: 30px;
+    background: #eeeeee;
+}
+
+    .top a {
+        color: #64686a;
+        line-height: 30px;
+    }
+
+    .top > div > a {
+        float: left;
+    }
+
+    .top > div > p {
+        float: right;
+    }
+
+        .top > div > p > a {
+            margin-left: 5px;
+        }
+
+/* 公共顶部样式 */
+
+/* 公共底部样式 */
+
+.foot {
+    width: 100%;
+    height: 100px;
+    background: #eeeeee;
+    bottom: 0;
+    text-align: center;
+}
+
+    .foot > div {
+        width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+        .foot > div > p {
+            display: block;
+            float: left;
+            width: 100%;
+        }
+
+    .foot .about {
+        margin: 25px 0 6px;
+        font-size: 14px;
+    }
+
+        .foot .about > a {
+            margin: 0 10px;
+            color: #999999;
+            font-size: 12px;
+        }
+
+        .foot .about + p {
+            color: #999999;
+            font-size: 12px;
+        }
+
+.foot_area {
+    width: 100%;
+    background: #eeeeee;
+    bottom: 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+    .foot_area > div {
+        width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+        .foot_area > div > dl {
+            margin: 0 auto;
+            /*margin-top: 5px;*/
+            padding-left: 80px;
+            text-align: left;
+            padding-top: 20px;
+        }
+
+            .foot_area > div > dl > dt {
+                position: absolute;
+                margin-left: -80px;
+                margin-top: 5px;
+            }
+
+            .foot_area > div > dl:nth-child(2) > dt {
+                margin-top: 20px;
+            }
+
+            .foot_area > div > dl > dd {
+                display: inline-block;
+                margin: 5px 40px 5px 0;
+            }
+
+                .foot_area > div > dl > dd > a {
+                    color: #666666;
+                }
+
+            .foot_area > div > dl:nth-child(2) > dd {
+                margin-top: 20px;
+            }
+/* 公共底部样式 */
+
+/* 公共头部样式 */
+
+.head {
+    width: 1000px;
+    height: 92px;
+    margin:0 auto;
+}
+.head ul{
+	overflow:hidden;
+	width:410px;
+	float:left;
+	margin-left:150px;
+    margin-top: -10px;
+}
+.head h1{
+	float:left;
+	margin-top:20px;
+}
+.head ul li{
+	float:left;
+	width:71px;
+	text-align:center;
+	margin: 0 15px;
+}
+.head ul li a{
+	padding-top:60px;
+}
+.head ul li a.zy{
+	background:url(../images/zy.png) 10px 20px no-repeat;
+}
+.head ul li a.yx{
+	background: url(../images/yx.png) 21px 28px no-repeat;
+    background-size: 32px;
+}
+.head ul li a.wsbm{
+	background: url(../images/wsbm.png) 24px 30px no-repeat;
+    background-size: 29px;
+}
+.head ul li a.sj{
+	background:url(../images/sj.png) 10px 20px no-repeat;
+}
+.head a{
+	display:block;
+}
+    .head > span {
+        font-size: 24px;
+        color: #2E3639;
+        margin-left: 10px;
+        vertical-align: middle;
+    }
+
+    .head > a:nth-child(1) > img {
+        float: left;
+        width:150px;
+		margin-top:19px;
+    }
+
+.search {
+    width: 171px;
+    text-align: center;
+    float: right;
+    border: 1px solid #BFCBCF;
+    border-radius: 18px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 20px;
+    margin: 28px 0;
+}
+
+    .search p {
+        display: block;
+        float: left;
+        width: 30px;
+        cursor: pointer;
+        color: #2E3639;
+    }
+
+    .search .p_search > p::after {
+        content: '▾';
+        display: block;
+        position: absolute;
+        margin-top: -36px;
+        margin-left: 35px;
+    }
+
+    .search p:hover {
+        color: #08A7E6;
+    }
+
+.p_search:hover .c_search {
+    display: block !important;
+}
+
+.search .p_search > div {
+    display: none;
+    width: 55px;
+    position: absolute;
+    margin-top: 36px;
+    border-left: 1px solid #BFCBCF;
+    border-right: 1px solid #BFCBCF;
+    background: #fff;
+    margin-left: -5px;
+    z-index: 9;
+}
+
+    .search .p_search > div > p {
+        width: 55px;
+        cursor: pointer;
+        border-bottom: 1px solid #BFCBCF;
+        height: 30px;
+        line-height: 30px;
+    }
+
+.search > input {
+    height: 20px;
+    line-height: 20px;
+    margin: 8px 0;
+    float: left;
+}
+
+.search > span {
+    font-size: 12px;
+    padding: 1px 3px;
+    background: #999999;
+    margin: 10px 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search > .blue {
+    color: #fff;
+    background: #08A7E6;
+}
+
+.search img {
+    float: right;
+    margin-top: 8px;
+}
+
+.belimg {
+    width: 59px;
+    height: 57px;
+    float: left;
+}
+
+.bel {
+    float: left;
+    display: inline-block;
+    font-size: 20px;
+    color: #2E3639;
+    margin-left: 20px;
+    line-height: 70px;
+    padding: 10px 0;
+}
+.head h1 a{
+	background:url(../images/logodq.png) no-repeat;
+	height:45px;
+	font-size:18px;
+	width:215px;
+	text-align:right;
+	color: #000;
+	line-height: 45px;
+}
+.head > p {
+    display: inline-block;
+    font-size: 16px;
+    color: rgba(46, 54, 57, 1);
+    margin-left: 20px;
+    cursor: pointer;
+    line-height: 92px;
+}
+
+    .head > p > span {
+        color: rgba(37, 163, 253, 1);
+        margin-left: 5px;
+    }
+
+.search2 {
+    float: left;
+    text-align: left;
+    margin: 30px 0;
+    width: 400px;
+    height: 40px;
+    border: 1px solid #EEEEEE;
+    padding: 0 30px 0 20px;
+}
+
+    .search2 + a {
+        position: absolute;
+        width: 20px;
+        margin-left: -30px;
+        margin-top: 40px;
+        cursor: pointer;
+    }
+
+/* 公共头部样式 */
+
+/* 公共菜单样式 */
+
+.menu {
+    background: url(../images/menubg.png) no-repeat center;
+	background-size: cover;
+	overflow:hidden;
+	width:100%;
+}
+
+    .menu > ul {
+        display: block;
+        width: 1000px;
+        margin:0 auto;
+    }
+
+        .menu > ul > li {
+            display: block;
+            float: left;
+            text-align: center;
+            font-size: 16px;
+        }
+
+            .menu > ul > li > a {
+                display: block;
+                padding: 11px 30px;
+                color: #fff;
+            }
+
+            .menu > ul > li:hover {
+                background: rgba(0, 0, 0, 0.1);
+            }
+
+        .menu > ul > .active {
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+
+.menu2 {
+    width: 100%;
+    background: linear-gradient(left,#1CC620,#19C9AA);
+    background: -moz-linear-gradient(left,#1CC620,#19C9AA);
+    background: -o-linear-gradient(left,#1CC620,#19C9AA);
+    background: -webkit-linear-gradient(left,#1CC620,#19C9AA);
+    background-size: cover;
+    height: 46px;
+    margin-top: 92px;
+}
+
+    .menu2 > ul {
+        display: block;
+        width: 1000px;
+        left: 50%;
+        margin-left: -600px;
+        position: absolute;
+    }
+
+        .menu2 > ul > li {
+            cursor: pointer;
+            width: 100px;
+            display: block;
+            float: left;
+            line-height: 46px;
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+        }
+
+            .menu2 > ul > li:hover {
+                background: rgba(0, 0, 0, 0.1);
+            }
+
+        .menu2 > ul > .active {
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+/* 公共菜单样式 */
+/* 模态框 */
+
+.popDiv {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    display: none;
+    z-index: 99;
+}
+
+    .popDiv > div {
+        width: 600px;
+        position: absolute;
+        left: 50%;
+        margin-left: -300px;
+        text-align: center;
+        overflow: hidden;
+        padding: 30px 20px;
+        padding-bottom: 60px;
+        margin-top: 150px;
+        background: #fff;
+        border-radius: 10px;
+    }
+
+        .popDiv > div > dl {
+            display: block;
+            overflow: hidden;
+        }
+
+        .popDiv > div dt {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .popDiv > div dd {
+            display: block;
+            float: left;
+            font-size: 16px;
+            padding: 2px 6px;
+            margin: 10px 20px;
+            cursor: pointer;
+        }
+
+            .popDiv > div dd:hover {
+                background: #08A7E6;
+                color: #fff;
+            }
+
+    .popDiv > span {
+        display: block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        position: absolute;
+        left: 50%;
+        margin-left: 280px;
+        margin-top: 155px;
+        z-index: 9;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        .popDiv > span:hover {
+            color: #25A3FD;
+        }
+
+/* 模态框 */

@@ -1,0 +1,70 @@
+<div class="weizhi">
+  你当前所在的位置：<a href="/">自考报名网</a>><a href="#">报名专业</a>><a target="_bank" href="{$Request.domain}/subject/{$subjectInfo.subjectId}.html">{$subjectInfo.subjectName}</a>
+<div class="lmjs">
+  <div class="lmjsleft">
+  <img src="{$subjectInfo.subjectImage}" alt="{$subjectInfo.subjectName}">
+  </div>
+  <div class="lmjsright">
+    <h2>{$subjectInfo.subjectName}</h2>
+    <p>{$subjectInfo.subjectDescribe}
+    </p>
+  </div>
+</div>
+<div class="bbody">
+  <div class="content">
+    <div class="bbodyLeft">
+      <div class="yx_dh">
+        <ul>
+          <li><a href="{$Request.domain}/subject/{$subjectInfo.subjectId}.html">专业主页</a></li>
+          <li class="on"><a href="{$Request.domain}/subject_bk/{$subjectInfo.subjectId}.html">报考科目</a></li>
+          <li><a href="{$Request.domain}/subject_jy/{$subjectInfo.subjectId}.html">就业前景</a></li>
+          <li><a href="{$Request.domain}/subject_lc/{$subjectInfo.subjectId}.html">毕业流程</a></li>
+          <li><a href="#">网上报名</a></li>
+          <li><a href="#">成绩查询</a></li>
+        </ul>
+      </div>
+      <div class="changeRange">
+        <ul>
+          {volist name="$list_bkkm" id="vo"}
+          <li>
+            <div class="changeRangeleft">
+              <img src="{$Request.domain}/{$vo.thumb_img}" alt="{$vo.title}">
+            </div>
+            <div class="changeRangeright">
+              <h3>
+                <a href="{$Request.domain}/{$vo.province_id}/info_{$vo.id}.html" target="_blank" title="{$vo.title}">{$vo.title}</a>
+              </h3>
+              <p>
+                <a href="{$Request.domain}/{$vo.province_id}/info_{$vo.id}.html" target="_blank">
+               {$vo.describe}
+                </a>
+              </p>
+              <div>
+                <span>{$vo.add_time}</span>
+              </div>
+            </div>
+          </li>
+          {/volist}
+        </ul>
+      </div>
+      <div class="page">
+          <div>
+             <div>
+              {$list_bkkm->render()}
+            </div>
+          </div>
+      </div>
+  </div>
+    <style type="text/css">
+    .page .pagination li{
+      float: left;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius:50%;
+    }
+    .page .pagination .active{
+      background: #25A3FD;
+      color: #fff;
+    }
+  </style>

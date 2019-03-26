@@ -1,0 +1,155 @@
+.yx_dh{
+	width:730x;
+	margin:20px  auto;
+}
+.yx_dh ul{
+	overflow: hidden;
+}
+.yx_dh ul li{
+	float: left;
+	border-bottom:3px solid #ccc;
+}
+.yx_dh ul li.on{
+	border-top:3px solid #0095ea;
+    color: #d1101b;
+	border-bottom:0px;
+	border-right:1px solid #ccc;
+	border-left:1px solid #ccc;
+    font-weight: bold;
+}
+.yx_dh ul li a{
+	display: inline-block;
+    padding: 12px 28px;
+    font-size: 16px;
+    border-bottom-color: #ddd;
+    border-top-width: 3px;
+}
+ul.yx_dt{
+	overflow:hidden;
+}
+ul.yx_dt li {
+    width: 232px;
+    float: left;
+    height: 20px;
+	margin-right:10px;
+}
+ul.yx_dt li a{
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+	float:left;
+	width:180px;
+}
+ul.yx_dt li span{
+	float:right;
+}
+.changeRange .yx_dt_bm{
+	float:left;
+	margin-right:30px;
+}
+.changeRange .yx_dt h3{
+	margin-bottom: 10px;
+    border-left: 3px #00a1ee solid;
+    line-height: 21px;
+    text-indent: 0.5em;
+    font-weight: bold;
+}
+.changeRange .yx_dt_bm img{
+	height:172px;
+	width:215px;
+}
+.yx_jz{
+	overflow:hidden;
+}
+.yx_jz ul li {
+    float: left;
+    width: 350px;
+    font-size: 16px;
+	margin-right: 15px;
+    line-height: 32px;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.yx_jz ul li a{
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+	float:left;
+	width:290px;
+}
+.yx_jz ul li span{
+	float:right;
+}
+.yx_jz ul h3{
+	border-left: 3px #00a1ee solid;
+    line-height: 21px;
+    text-indent: 0.5em;
+    font-weight: bold;
+	margin-bottom:10px;
+}
+.yx_bm{
+    width: 728px;
+    border: 1px #00a9f0 solid;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    margin: 10px auto;
+    font-size: 28px;
+	border-radius: 5px;
+	background:#00a9f0;
+}
+.yx_bm a{
+	display:block;
+	color:#fff;
+	letter-spacing: 20px;
+}
+table {
+    border: 1px #ccc solid;
+    height: 650px;
+    overflow: hidden;
+    margin: 20px auto;
+}
+.bm_red a{
+	color:#f00;
+}
+table thead tr{
+	border: 1px #ccc solid;
+	line-height:60px;
+}
+#Content td {
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+}
+tr.yxjs-tabbj td {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+td.yxjs-tabmc {
+    width: 220px;
+}
+td.yxjs-tabxz {
+    width: 120px;
+}
+td.yxjs-tabxs {
+    width: 100px;
+}
+td.yxjs-tabkl {
+    width: 150px;
+}
+td.yxjs-tabbm {
+    width: 150px;
+}
+.yx_by h3{
+	border-left: 3px #00a1ee solid;
+    line-height: 21px;
+    text-indent: 0.5em;
+    font-weight: bold;
+    margin:10px auto;
+}
+.yx_by li {
+    float: left;
+    width: 180px;
+}

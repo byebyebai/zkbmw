@@ -1,0 +1,86 @@
+<h3>文章更新</h3>
+<div class="row">
+	<div class="col-lg-3 col-xs-6">
+	  <div class="small-box bg-aqua">
+	    <div class="inner">
+	      <p>更新文章</p>
+	    </div>
+	    <a href="javascript:void(0);" id="updateAllArticle" class="small-box-footer">开始执行<i class="fa fa-arrow-circle-right"></i></a>
+	  </div>
+	</div>
+	 <div class="col-lg-3 col-xs-6">
+	  <div class="small-box bg-green">
+	    <div class="inner">
+	      <p>清除缓存</p>
+	    </div>
+	    <a href="javascript:void(0);" id="rmCache" class="small-box-footer">开始执行<i class="fa fa-arrow-circle-right"></i></a>
+	  </div>
+	</div>
+<!--	<div class="col-lg-3 col-xs-6">
+	  <div class="small-box bg-yellow">
+	    <div class="inner">
+	      <p>更新首页</p>
+	    </div>
+	    <a href="#" class="small-box-footer">开始执行<i class="fa fa-arrow-circle-right"></i></a>
+	  </div>
+	</div> -->
+<!-- 	<div class="col-lg-3 col-xs-6">
+	  <div class="small-box bg-red">
+	    <div class="inner">
+	      <p>访客</p>
+	    </div>
+	    <a href="#" class="small-box-footer">开始执行 <i class="fa fa-arrow-circle-right"></i></a>
+	  </div>
+	</div> -->
+</div>
+<div class="row">
+	<div class="col-md-12">
+        <p class="text-center">
+            <strong>执行进度</strong>
+        </p>
+        <div class="progress-group">
+            <span class="progress-text">加载</span>
+            <span class="progress-number"><b class="now">0</b>/<span class="count">默认</span></span>
+            <div class="progress">
+              <div class="progress-bar progress-bar-green" id="loading" style="width:0%"></div>
+            </div>
+            <p>执行结果集</p>
+            <div class="res1">
+            	
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+	$("#updateAllArticle").click(function(){
+		request('/index/index/updateAllArticle');
+		$(".res1").html('');
+	})
+
+	function request(url){
+
+		$.get(url,{},function(result){
+			
+			if(result.status != 1){
+				request('/index/index/updateAllArticle');
+			}
+			$(".count").html(result.count)
+			$(".now").html(result.now)
+			$("#loading").css('width',result.nowLoading+'%');
+			$(".res1").html("总条数:"+result.count+"条,当前文章ID："+result.id+",当前执行状态："+result.status+",消息："+result.msg+",当前为第："+result.now+'条，完成进度：'+result.nowLoading+"%<br />");
+			
+		},'json')
+
+	}
+
+	$("#rmCache").click(function(){
+		$.get('/Admin/Updatedata/rmCache',{},function(result){
+			if(result == 1){
+				alert('清除缓存成功');
+			}else{
+				alert('清除缓存失败');
+			}
+		},'json')
+	})
+</script>

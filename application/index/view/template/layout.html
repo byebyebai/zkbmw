@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Cache-Control" content="no-transform" />
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        <link rel="stylesheet" href="{$Request.domain}__CSS__/base.css" />
+    	<link rel="stylesheet" href="{$Request.domain}__CSS__/baokaoyuanxiao.css">
+        <link rel="stylesheet" href="{$Request.domain}__CSS__/public.css">
+    	<link rel="stylesheet" href="{$Request.domain}__CSS__/index_yx.css">
+        <script type="text/javascript" src="{$Request.domain}__JS__/jquery.min.js"></script>
+        <title>{$seo.title}</title>
+        <meta name="keywords" content="{$seo.keywords}">
+        <meta name="description" content="{$seo.desc}">
+    </head>
+<body>
+<div class="top">
+    <div>
+       Hi，欢迎来到<a href="#"style="float: none;" >自考报名网</a>
+        <p>
+            <a href="#">网站地图</a>
+            <a href="{$Request.domain}/wsbm.html">网上报名</a>
+            <a href="javascript:void(0);" onclick="addFavorite2()"  title="收藏本站到收藏夹">加入收藏</a>
+            
+        </p>
+    </div>
+</div>
+<div class="head">
+    <a href="{$Request.domain}/wsbm.html" class="index_logo">自考报名网</a>
+	<ul>
+		<li><a href="{$Request.domain}/wsbm.html" class="wsbm">网上报名</a></li>
+		<li><a href="{$Request.domain}/subject/index.html" class="zy">报名专业</a></li>
+		<li><a href="{$Request.domain}/school/index.html" class="yx">报考院校</a></li>
+		<li><a href="#" class="sj">书籍材料</a></li>
+	</ul>
+    <div class="search">
+        <input type="text" id="search_content" value="{$where.keywords|default=''}">
+        <a href="javascript:;" onclick="find()">
+            <img src="{$Request.domain}__IMAGES__/search.png" alt="">
+        </a>
+    </div>
+</div>
+<div class="menu">
+    <ul>
+        <li {notempty name="$nav"}{if condition="$nav eq 'index'"}class="active"{/if}{else /}class="active"{/notempty}><a href="{$Request.domain}">自考报名</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq 'school'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/school/index.html" target="_blank">报考院校</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq 'subject'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/subject/index.html" target="_blank">报名专业</a></li>
+        <li><a href="{$Request.domain}/wsbm.html" target="_blank">网上报名</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq '21'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/cate/21.html" target="_blank">报考时间</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq '20'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/cate/20.html" target="_blank">报名流程</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq '22'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/cate/22.html" target="_blank">报名条件</a></li>
+        <li {notempty name="$nav"}{if condition="$nav eq '17'"}class="active"{/if}{/notempty}><a href="{$Request.domain}/cate/17.html" target="_blank">报考资讯</a></li>
+    </ul>
+</div>
+{notpresent name="area"}
+<div class="area wrap fix" id="area">
+    <span>各地区：</span>
+     
+</div>
+{/notpresent}
+    [__REPLACE__]
+    <div class="bbodyRight"> 
+    <div class="guide">
+        <h2>考试<span>指南</span></h2>
+        <ul class="fix">
+            <li><a href="{notempty name='$nav'}{$Request.domain}/cate/{if condition='$nav neq 22'}{notempty name='$province_id'}{$province_id}-{/notempty}{/if}22.html{/notempty}" target="_blank">报考条件</a></li>
+            <li><a href="{$Request.domain}/cate/{notempty name='$province_id'}{$province_id}-{/notempty}21.html" target="_blank">报名时间</a></li>
+            <li><a href="{$Request.domain}/cate/{notempty name='$province_id'}{$province_id}-{/notempty}20.html" target="_blank">报名流程</a></li>
+            <li><a href="{notempty name='$nav'}{$Request.domain}/cate/{if condition='$nav neq 25'}{notempty name='$province_id'}{$province_id}-{/notempty}{/if}25.html{/notempty}" target="_blank">考试时间</a></li>
+            <li><a href="{$Request.domain}/cate/{notempty name='$province_id'}{$province_id}-{/notempty}26.html" target="_blank">报考材料</a></li>
+            <li><a href="{$Request.domain}/{notempty name='$province_id'}{:c2PyByAreaid($province_id)}/{/notempty}wsbm.html" target="_blank">报名入口</a></li>
+        </ul>
+    </div>
+
+    <div id="tagscloud">
+        <h2>热门标签</h2>
+    </div>
+    <dl class="hot2 hotSchool">
+        <dt>热门学校推荐</dt>
+    </dl>
+
+    <dl class="hot2 hotPro major">
+        <dt>热门专业推荐</dt>
+        
+    </dl>
+    <dl class="hot2 hotPro article">
+        <dt>自考报名最新动态</dt> 
+    </dl>
+    </div>
+        </div>
+    </div>
+</div>
+<div class="foot_area">
+    <div>
+        <dl>
+            <dt>地区自考：</dt>
+            {volist name=":C2PY()" id="vo"}
+                <dd><a href="{$Request.domain}/dq/{$vo.dir}.html" target="_blank">{$vo.name}自考</a></dd>
+            {/volist}
+        </dl>
+    </div>
+</div>
+
+<div class="foot">
+    <div>
+        <!-- <p class="about">
+            <a href="/about/about" target="_blank">关于学赛</a>
+            <a href="/about/mianze" target="_blank">免责申明</a>
+            <a href="/about/sitemap" target="_blank">网站地图</a>
+            <a href="/about/swhezuo" target="_blank">商务合作</a>
+            <a href="/about/contact" target="_blank">联系我们</a>
+        </p> -->
+        <p>&nbsp;
+            <a href="/" target="_blank" style="color: #999999;">江西自考报名网</a>&nbsp;&nbsp;版权所有&nbsp;&nbsp;©2018-2019&nbsp;&nbsp;赣ICP备10203241号-5&nbsp;&nbsp;
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43019002000673"target="_blank" style="color: #999999;"rel="nofollow">赣公网安备&nbsp;43019002000673号</a>&nbsp;&nbsp;
+            <!-- <a href="/about/yyzz.htm" target="_blank" style="color: #999999;">营业执照</a> -->
+        </p>
+    </div>
+</div>
+<div class="fixedR">
+    <img src="__IMAGES__/bmrk.png">
+    <div class="enrollInfo">
+        <ul>
+            <li>
+                <h3><span>*</span> 姓名：</h3>
+                <input type="text" id="enroll_name" placeholder="请输入你的真实姓名" class="name">
+            </li>
+            <li>
+                <h3><span>*</span> 联系方式：</h3>
+                <input type="tel" id="enroll_phone" placeholder="请输入你的联系方式（手机号）" class="tel" maxlength="11">
+            </li>
+            <li>
+                <h3><span>*</span> 报读类别：</h3>
+                <select id="enroll_readType" name="enroll_readType">
+                    <option value="1" selected="selected">自学考试</option>
+
+                </select>
+            </li>
+            <li>
+                <h3>报名地区：</h3>
+                <select id="enroll_readArea" name="enroll_readArea">
+                    <option value="0">请选择</option>
+                    {volist name=":C2PY()" id="vo"}
+                        <option value="{$vo.Id}">{$vo.name}</option>
+                    {/volist}
+                </select>
+            </li>
+            <li>
+                <h3>验证码：</h3>
+                <div class="group">
+                    <input type="text" class="yzm" placeholder="看右侧->" id="enroll_verifycode">
+                    <img id="enroll_imgVerify" src="{$Request.domain}{:url('index/api/verify')}" alt="看不清？点击图片更换" title="看不清？点击图片更换" onclick="this.src=this.src+'?'" />
+                </div>
+            </li>
+        </ul>
+        <button type="submit" class="submit" onclick="save_enroll()">提交报名</button>
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="{$Request.domain}__CSS__/indexxz.css">
+
+<script type="text/javascript">
+
+    function save_enroll(){
+        var data = {};
+        data.enroll_name = $("#enroll_name").val();
+        data.enroll_phone = $("#enroll_phone").val();
+        data.enroll_readArea = $("#enroll_readArea").val();
+        data.enroll_readType = $("#enroll_readType").val();
+        data.enroll_verifycode = $("#enroll_verifycode").val();
+        $.post("{$Request.domain}{:url('index/api/enroll')}",{data:data},function(e){
+            alert(e.msg)
+            if(e.code != 200){
+                
+                $("#enroll_imgVerify").click();
+                $("#enroll_verifycode").val('');
+                return false;
+            }else{
+                location.reload()
+            }
+        },'json')
+    }
+
+</script>
+<input type="hidden" id="hidSearchID" value="3">
+<script type="text/javascript">
+    
+    
+    $.post("{$Request.domain}/index/Api/getSubjects",{},function(res){
+        
+        var html = '';
+        data = res.data;
+        for(i=0;i<data.length;i++){
+            
+            html += '<dd><a href="/major/'+data[i].subjectId+'.html" target="_blank" class="hotTop" title="'+data[i].subjectName+'">'+data[i].subjectName+'</a></dd>';
+        } 
+        $(".major").append(html);
+    },'JSON');
+    $.post("{$Request.domain}/index/Api/getSchool",{'province_id':"{$province_id|default=''}"},function(res){
+        
+        var html = '';
+        data = res.data;
+        for(i=0;i<data.length;i++){
+            html += '<dd><a href="/school/'+data[i].schoolId+'.html" target="_blank" class="hotTop" title="'+data[i].schoolName+'">'+data[i].schoolName+'</a></dd>';
+        } 
+        $(".hotSchool").append(html);
+    },'JSON');
+    $.post("{$Request.domain}/index/Api/getArticle",{'province_id':"{$province_id|default=''}"},function(res){
+        
+        var html = '';
+        data = res.data;
+        for(i=0;i<data.length;i++){
+            html += '<dd><a href="/'+data[i].province_id+'/info_'+data[i].id+'.html" target="_blank" class="hotTop" title="'+data[i].title+'">'+data[i].title+'</a></dd>';
+        } 
+        $(".article").append(html);
+    },'JSON');
+    $.post("{$Request.domain}/index/Api/getDistrictLevel1",{},function(res){
+        
+        var html = '';
+        data = res.data;
+        for(i=0;i<data.length;i++){
+    
+            html += '<a href="{$Request.domain}/dq/'+data[i].area+'.html" target="_blank" title="'+data[i].name+'">'+data[i].name+'</a>';
+        } 
+        $("#area").append(html);
+    },'JSON');
+</script>
+<script type="text/javascript" src="{$Request.domain}__JS__/javascript.js"></script>
+<script type="text/javascript" src="{$Request.domain}__JS__/js.js"></script>
+</body>
+</html>

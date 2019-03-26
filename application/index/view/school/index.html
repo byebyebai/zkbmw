@@ -1,0 +1,76 @@
+<div class="city">
+    <dl>
+        <dt>省份：</dt>                                               
+        <dd {notpresent name="$where"}class="active"{/notpresent} >
+            <a href='{$Request.domain}/school/index.html?level={$where.level ? $where.level : ""}'>全国</a>
+        </dd>
+        {volist name="$dist" id="vo"}
+            <dd {present name="$where"}{notempty name="$where['province_id']"}{if condition="$vo.Id eq $where['province_id']"} class="active"{/if}{/notempty}{/present}>
+                <a href='{$Request.domain}/school/index.html?pid={$vo.Id}{present name="$where.level"}&level={$where.level}{/present}'>{if condition="$vo.Id eq 8"}黑龙江{else /}{$vo.name|mb_substr=0,2,'utf-8'}{/if}</a>
+            </dd>
+        {/volist}
+    </dl>
+    <dl>
+
+        <dt>层次：</dt>
+        <dd {notpresent name="$where"}{empty name="$where['level']"}class="active"{/empty}{/notpresent}>
+            <a href='{$Request.domain}/school/index.html?{present name="$where.province_id"}pid={$where.province_id}&{/present}'>全部</a>
+        </dd>
+        {volist name=":subjectLevel()"  id="vo" key="k"}
+        <dd {present name="$where.level"}{if condition="$k-1 eq $where['level']"} class="active"{/if}{/present}>
+            <a href='{$Request.domain}/school/index.html?{present name="$where.province_id"}pid={$where.province_id}&{/present}level={$k-1}'>{$vo}</a>
+        </dd>
+        {/volist}
+    </dl>
+
+    <div class="yx_so">
+        <input type="text" placeholder="请输入院校名称" id="schoolName" value="" class="search2">
+        <img src="images/search.png" alt="" onclick="search()">
+    </div>
+    </div>
+    <div class="bbody">
+        <div class="content">
+            <div class="bbodyLeft">
+
+                <ul>
+                    {volist name="$list" id="vo"}
+                    <li>
+                        <a href="{$Request.domain}/school/{$vo.schoolId}.html" target="_blank">
+                            <img src="{$vo.schoolImage}" alt="{$vo.schoolName}">
+                            <h4>{$vo.schoolName}</h4>
+                        </a>
+                        <a href="/xndx/enroll/" target="_blank">
+                            <span>网上报名</span>
+                        </a>
+                        <a href="{$Request.domain}/school_subject/{$vo.schoolId}.html" target="_blank">
+                            <span>专业详情</span>
+                        </a>
+                        <a href="/xndx/news/c7.html" target="_blank">
+                            <span>主考院校</span>
+                        </a>
+                    </li>
+                    {/volist}
+                </ul>
+                {empty name="$list"}
+                    未查到更多数据
+                {/empty}
+                <div class="page">
+                    <div>
+                        {$list->render()}
+                    </div>
+                </div>
+            </div>
+    <input type="hidden" id="hidSearchID" value="1">
+  <style type="text/css">
+    .page .pagination li{
+      float: left;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius:50%;
+    }
+    .page .pagination .active{
+      background: #25A3FD;
+      color: #fff;
+    }
+  </style>

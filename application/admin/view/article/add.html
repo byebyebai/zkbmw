@@ -1,0 +1,427 @@
+
+<link rel="stylesheet" href="__STATIC__/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="__STATIC__/kindeditor/plugins/code/prettify.css" />
+<script charset="utf-8" src="__STATIC__/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="__STATIC__/kindeditor/lang/zh-CN.js"></script>
+<script charset="utf-8" src="__STATIC__/kindeditor/plugins/code/prettify.js"></script>
+<style type="text/css">
+    .row .tag{
+        position: relative;
+        height: 26px;
+        overflow: hidden;
+    }
+    .row .buttonCheck{
+        position: absolute;
+        right: -16px;
+        top: 9px;
+        cursor: pointer;
+    }
+    .row .addTag{
+        position: absolute;
+        right: -6px;
+        top: -6px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    .tag{
+        color: #000;
+    }
+    .modal-tag{
+        /*width: 400px;*/
+        /*display: block;*/
+        min-width: 350px;
+        position: absolute;
+        left: 52.5%;
+        top: 30.1%;
+        z-index: 999;
+        border:1px solid #d2d6de;
+        border-radius: 0 0 8px 8px;
+        background: #f1f1f1;
+    }
+    .modal-tag .title,.close{
+        height: 30px;
+        display: inline-block;
+        line-height: 30px;
+        border-bottom: 1px solid #d2d6de;
+        background: #00c0ef;
+        color: #fff;
+    }
+    .modal-tag .title{
+        padding-left: 15px;
+
+        width: 93%;
+    }
+    .modal-tag .close{
+        width: 7%;
+        text-align: center;
+        opacity:1;
+    }
+    .modal-tag .tag-body{
+        padding: 15px 0;
+        background: #fff;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            {include file="template/form_header" /}
+            <form id="dataForm" class="form-horizontal dataForm" action="" method="post" enctype="multipart/form-data">
+                <div class="box-body">
+                    <div class="fields-group">
+                        {if isset($info)}
+                        <input id="id" name="id" value="{$info.id}" hidden placeholder="请勿修改">
+                        {/if}
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label">文章标题</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                    <input maxlength="20" id="title" name="title" value="{$info.title|default=''}"
+                                           class="form-control" placeholder="请输入文章标题">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category_id" class="col-sm-2  control-label">选择栏目</label>
+                            <div class="col-sm-2 col-md-1">
+                                <div>
+                                    <select class="form-control" name="level1">
+					                    {volist name="categoryList" id="vo"}
+                                        <option value="{$vo.id}" {if isset($info)}{if condition="$info.category_id eq $vo.id" }selected{/if}{/if}>{$vo.category_name}</option>
+                                        {/volist}
+					                </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-md-2">
+                                <div>
+                                    <select class="form-control" name="level2">
+					                    
+					                </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category_id" class="col-sm-2  control-label">选择地区</label>
+                            <div class="col-sm-2 col-md-1">
+                                <div>
+                                    <select class="form-control" name="province_id">
+                                        {volist name=":getAreaListByWhere(['level'=>1])" id="vo"}
+                                            <option value="{$vo.Id}" {if isset($info)}{if condition="$info.province_id eq $vo.Id"}selected{/if}{/if}>{$vo.name}</option>
+                                        {/volist}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-md-2">
+                                <div>
+                                    <select class="form-control" name="city_id">
+                                        <option value="">默认</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="headimg" class="col-sm-2 control-label">缩略图</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group file-caption-main">
+                                    <div tabindex="500" class="form-control file-caption  kv-fileinput-caption">
+                                        <div class="file-caption-name" id="input-filename-headimg">
+                                        </div>
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <div tabindex="500" class="btn btn-primary btn-file">
+                                            <i class="glyphicon glyphicon-folder-open"></i>
+                                            <span class="hidden-xs">浏览</span>
+                                            <input type="file" class="form-input-image"
+                                                   data-preview="image-preview-headimg"
+                                                   data-showname="input-filename-headimg" name="thumb_img" id="headimg">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group file-caption-main">
+                                    <img id="image-preview-headimg" src="{$info.thumb_img|default='/static/admin/images/default_pic.png'}"
+                                         style="max-width: 150px;max-height: 150px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="origin" class="col-sm-2 control-label">文章来源</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                    <input id="origin" name="origin"
+                                           value="{$info.origin|default=''}" class="form-control"
+                                           placeholder="请输入文章来源">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="essentials" class="col-sm-2 control-label">文章摘要</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                    <input id="essentials" name="essentials"
+                                           value="{$info.essentials|default=''}" class="form-control"
+                                           placeholder="请输入文章摘要">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="keywords" class="col-sm-2 control-label">文章关键词</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                    <input type="text" id="keywords" name="keywords"
+                                           value="{$info.keywords|default=''}" class="form-control"
+                                           placeholder="请输入文章关键词">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="describe" class="col-sm-2 control-label">描述</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group">
+                                	<textarea class="form-control" rows="3" cols="80" id="describe" name="describe" placeholder="请输入描述 ...">{$info.describe|default=''}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group tag">
+                            <label for="describe" class="col-sm-2 control-label">Tag标签</label>
+                            <div class="col-sm-10 col-md-4 checkbox-item">
+                                <span class="buttonCheck">展开</span>
+                                <span class="addTag" title="添加tag标签">+</span>
+                            	<div class="checkbox tag-checkbox">
+                            	{if isset($tag_ids)}
+
+									{volist name='tag' id="vo"}
+										{in name="$vo.id" value="$tag_ids"}
+	                                	<div class="col-md-3">
+	                                		<input type="checkbox" class="minimal-red tag{$vo.id}" name="Tag[]" checked value="{$vo.id}">{$vo.tag_name}
+	                                	</div>
+	                                	{else /}
+	                                	<div class="col-md-3">
+	                                		<input type="checkbox" class="minimal-red tag{$vo.id}" name="Tag[]" value="{$vo.id}">{$vo.tag_name}
+	                                	</div>
+	                                	{/in}									
+	                                {/volist}
+                            	{else /}
+									{volist name='tag' id="vo"}
+	                                	<div class="col-md-3">
+	                                		<input type="checkbox" class="minimal-red tag{$vo.id}" name="Tag[]" value="{$vo.id}">{$vo.tag_name}
+	                                	</div>									
+	                                {/volist} 
+
+                            	{/if}
+                                   	
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="modal-tag" style="display: none;">
+                            <div class="tag-head">
+                                <div class="title">添加tag标签</div>
+                                <div class="close tag-close">X</div>
+                            </div>
+                            <div class="tag-body col-md-12">
+                                 <div class="form-group">
+                                    <label for="keywords" class="col-md-3 control-label">tag名称</label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <input type="text" id="tagName" class="form-control" placeholder="请输入tag名称">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="keywords" class="col-md-3 control-label">tag关键词</label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <input type="text" id="tagKeywords" class="form-control" placeholder="请输入文章关键词">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="keywords" class="col-md-3 control-label">tag描述</label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                             <textarea id="tagDesc" style="height: 100px; width: 196px;" placeholder="请输入tag描述"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                 <div class="btn-group">
+                                    <button type="button" class="btn btn-info tag-submit">
+                                        提交
+                                    </button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default tag-close">
+                                        关闭
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"></div>
+                        <div class="form-group">
+                            <label for="hits" class="col-sm-2 control-label">点击量</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                    <input type="text" id="hits" name="hits"
+                                           value="{$info.hits|default=''}" class="form-control" placeholder="请输入起始点击量">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="add_time" class="col-sm-2 control-label">发布时间</label>
+                            <div class="col-sm-10 col-md-4">
+                                <div class="input-group date">
+				                  <div class="input-group-addon">
+				                    <i class="fa fa-calendar"></i>
+				                  </div>
+				                  <input type="text" id="add_time" name="add_time" value="{$info.add_time|default=''}" class="form-control pull-right" id="datepicker" placeholder="请输入发布时间 2018-12-18">
+				                </div>
+                            </div>
+                        </div>
+						
+						<div class="form-group">
+                            <label for="editor" class="col-sm-2 control-label">发布内容</label>
+                            <div class="col-sm-10 col-md-8">
+                                <textarea id="editor" name="content" style="height: 700px;">{$info.content|default=''}</textarea>
+                            </div>  
+                        </div>
+
+                    </div>
+
+                </div>
+                {include file="template/form_footer" /}
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    KindEditor.ready(function(K) {
+        var editor1 = K.create('#editor', {
+            width:'100%',
+            cssPath : '__STATIC__/kindeditor/plugins/code/prettify.css',
+            uploadJson : '/admin/extend/kindeditUpload',
+            fileManagerJson : '/admin/extend/kindeditUpload',
+            allowFileManager : true,
+            themeType : 'simple',
+            urlType:'domain'
+        });
+        prettyPrint();
+    });
+</script>
+<script type="text/javascript">
+	var off = false
+	$(".buttonCheck").on('click',function(){
+		if(off == false){
+			off = true
+			$(".tag").css('overflow','inherit');
+			$(".checkbox-item").css('display','block');
+			$(this).html('收起');
+		}else{
+			off = false
+			$(".tag").css('overflow','hidden');
+			$(this).html('展开');
+		}
+	})
+</script>
+<script type="text/javascript">
+    //模态框出现关闭
+    $(".addTag").click(function(){
+        $('#tagName').val('');
+        $('#tagKeywords').val('');
+        $('#tagDesc').val('');
+        $(".modal-tag").fadeIn(1000);
+    })
+    $(".tag-close").click(function(){
+        $(".modal-tag").fadeOut(1000);
+    })
+    $(".tag-submit").click(function(){
+        var data = {};
+        data.tag_name = $('#tagName').val();
+        data.seo_keyword = $('#tagKeywords').val();
+        data.seo_describe = $('#tagDesc').val();
+        $.post("{:url('tag/tag_response')}",{data},function(e){
+            alert(e.Message);
+            if(e.code == '200'){
+                $(".modal-tag").fadeOut(1000);
+                $html = '<div class="col-md-3"><input type="checkbox" class="minimal-red tag'+e.id+'" name="Tag[]" value="'+e.data.id+'">'+e.data.tag_name+'</div>';
+                $(".tag-checkbox").append($html);
+            }
+            if(e.code == '1'){
+                $(".tag"+e.data.id).attr({checked:"checked"});
+                $(".modal-tag").fadeOut(1000);
+            }
+        },'json')
+    })
+</script>
+<script type="text/javascript">
+	var level1_id = $("select[name='level1']").val();
+	if(level1_id !== ''){
+		var level2 = "{if isset($info.level1)}{$info.level2}{/if}";
+		$.post("{:url('article/getAreaLevelArticleCategory')}",{id:level1_id},function(e){
+	        var html = '<option value="">默认</option>'
+		    $.each(e.data,function(n,item){
+		    	if(item.id == level2){
+		    		html += "<option value="+item.id+" selected='selected'>"+item.category_name+"</option>"
+		    	}else{
+		    		html += "<option value="+item.id+">"+item.category_name+"</option>"
+		    	}
+		    })
+		    $("select[name='level2']").append(html);
+	    });
+	}
+    var city_id = $("select[name='province_id']").val();
+    if(city_id !== ''){
+        var cityId = "{if isset($info.city_id)}{$info.city_id}{/if}";
+        $.post("{:url('article/getLevel2List')}",{id:city_id},function(e){
+
+            var html = '<option value="">默认</option>'
+            $.each(e.data,function(n,item){
+                if(item.Id == cityId){
+                    html += "<option value="+item.Id+" selected='selected'>"+item.name+"</option>"
+                }else{
+                    html += "<option value="+item.Id+">"+item.name+"</option>"
+                }
+            })
+            $("select[name='city_id']").append(html);
+        });
+    }
+
+	$("select[name='level1']").change(function(){
+		var id = $(this).val();
+		if(id == '') {return false;}
+		$("select[name='level2']").empty();
+		$.post("{:url('article/getAreaLevelArticleCategory')}",{id:id},function(e){
+	        var html = ''
+	        var html = '<option value="">默认</option>'
+		    $.each(e.data,function(n,item){
+		      html += "<option value="+item.id+">"+item.category_name+"</option>"
+		    })
+		    $("select[name='level2']").append(html);
+	    });
+	})
+    //处理地区联动
+    $("select[name='province_id']").change(function(){
+        var id = $(this).val();
+        $("select[name='city_id']").empty();
+        $.post("{:url('article/getLevel2List')}",{id:id},function(e){
+            var html = ''
+            var html = '<option value="">默认</option>'
+            $.each(e.data,function(n,item){
+              html += "<option value="+item.Id+">"+item.name+"</option>"
+            })
+            $("select[name='city_id']").append(html);
+        });
+        
+    })
+	
+</script>

@@ -1,0 +1,109 @@
+﻿.bbodyLeft{
+    width: 970px;
+    float: left;
+    margin-right: 10px;
+}
+.bbodyRight{
+    width: 220px;
+    float: left;
+}
+.city{
+    color: #2E3639;
+    overflow: hidden;
+    width: 1000px;
+    font-size: 14px;
+    margin: 10px auto;
+}
+.city .yx_so{
+	overflow:hidden;
+	 width: 259px;
+    float: right;
+}
+.city dl{
+    overflow: hidden;
+    margin-left: 50px;
+	float:left;
+}
+.city dt{
+    font-weight: bold;
+    display: block;
+    position: absolute;
+    width: 72px;
+    padding: 5px 10px;
+    margin-left: -60px;
+}
+.city dd{
+    display: block;
+    float: left;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.city .active a{
+    background:rgba(37,163,253,1);
+    color: #fff;
+}
+.search2{
+    float:left;
+    text-align: left;
+    margin: 0px 0;
+    width: 214px;
+    height: 32px;
+    border: 1px solid #EEEEEE;
+    padding: 0 20px 0 20px;
+}
+.search2+img{
+    position: absolute;
+    width: 20px;
+    margin-left: -30px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.bbodyLeft>ul>li{
+    width: 223px;
+    height: 220px;
+    display: block;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+.bbodyLeft>ul>li>a>img{
+    width: 220px;
+    height: 146px;
+}
+.bbodyLeft>ul>li>a>h4{
+    font-size: 16px;
+    color: #2E3639;
+    font-weight: bold;
+    margin-top:14px;
+	text-align:center;
+}
+.bbodyLeft>ul>li>a>span{
+    display: inline-block;
+    margin-top: 6px;
+    float: left;
+    font-size:12px;
+    color:rgba(153,153,153,1);
+    padding-left: 14px;
+    margin-right: 10px;
+
+}
+.bbodyLeft>ul>li>a:nth-child(2)>span::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 11px;
+    height: 14px;
+    background: url(../images/pic1.png) no-repeat center;
+    margin-left: -14px;
+}
+.bbodyLeft>ul>li>a:nth-child(3)>span::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 13px;
+    height: 12px;
+    background: url(../images/pic2.png) no-repeat center;
+    margin-left: -14px;
+}

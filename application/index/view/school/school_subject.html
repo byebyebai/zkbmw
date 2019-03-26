@@ -1,0 +1,68 @@
+<div class="weizhi">
+	你当前所在的位置：<a href="/">自考报名网</a>><a target="_blank" href="{$Request.domain}/{$schoolInfo.province_id}">{$schoolInfo.area}</a>><a href="{$Request.domain}/school/{$schoolInfo.schoolId}.html">{$schoolInfo.schoolName}</a>><a href="">招生专业</a>
+    </div>
+	<div class="lmjs">
+		<div class="lmjsleft">
+			<img src="{$schoolInfo.schoolLogo}" alt="{$schoolInfo.schoolName}">
+		</div>
+		<div class="lmjsright">
+			<h2>{$schoolInfo.schoolName}院校简介</h2>
+			<p>{$schoolInfo.seo_description}</p>
+		</div>
+	</div>
+	<div class="bbody">
+        <div class="content">
+            <div class="bbodyLeft">
+			<div class="yx_dh">
+        	<ul>
+            <li><a target="_blank" href="{$Request.domain}/school/{$schoolInfo.schoolId}.html">学校主页</a></li>
+      			<li><a target="_blank" href="{$Request.domain}/school_news/{$schoolInfo.schoolId}.html">院校动态</a></li>
+      			<li ><a target="_blank" href="{$Request.domain}/school_jz/{$schoolInfo.schoolId}.html">招生简章</a></li>
+            <li class="on"><a >招生专业</a></li>
+            <li><a target="_blank" href="">网上报名</a></li>
+      			<li><a target="_blank" href="">成绩查询</a></li>
+          </ul>
+      </div>
+			<div class="changeRange">
+				<ul>
+          {volist name="$list" id="vo"}
+            <li>
+              <div class="changeRangeleft"><img src="{$Request.domain}/{$vo.thumb_img}" alt="{$vo.title}"></div>
+              <div class="changeRangeright">
+                <h3>
+                    <a href="{$Request.domain}/{$vo.province_id}/info_{$vo.id}.html" target="_blank" title="{$vo.title}">{$vo.title}</a>
+                </h3>
+                <p>
+                    <a href="{$Request.domain}/{$vo.province_id}/info_{$vo.id}.html" target="_blank">
+                       {$vo.describe}
+                    </a>
+                </p>
+                <div>
+                    <span>{$vo.add_time}</span>
+                </div>
+              </div>
+            </li>
+          {/volist}
+         </ul>
+      </div>
+      <div class="page">
+          <div>
+            <div>
+              {$list->render()}
+            </div>
+          </div>
+      </div> 
+	</div>
+  <style type="text/css">
+    .page .pagination li{
+      float: left;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius:50%;
+    }
+    .page .pagination .active{
+      background: #25A3FD;
+      color: #fff;
+    }
+  </style>

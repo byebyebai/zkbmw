@@ -1,0 +1,81 @@
+<div class="weizhi">
+	你当前所在的位置：<a href="/">自考报名网</a>><a target="_blank" href="{$Request.domain}/{$schoolInfo.province_id}">{$schoolInfo.area}</a>><a href="#">{$schoolInfo.schoolName}</a>
+    </div>
+	<div class="lmjs">
+		<div class="lmjsleft">
+			<img src="{$schoolInfo.schoolLogo}" alt="{$schoolInfo.schoolName}">
+		</div>
+		<div class="lmjsright">
+			<h2>{$schoolInfo.schoolName}院校简介</h2>
+			<p>{$schoolInfo.seo_description}</p>
+		</div>
+	</div>
+	<div class="bbody">
+        <div class="content">
+            <div class="bbodyLeft">
+			<div class="yx_dh">
+        	<ul>
+            <li class="on"><a>学校主页</a></li>
+      			<li><a target="_blank" href="{$Request.domain}/school_news/{$schoolInfo.schoolId}.html">院校动态</a></li>
+      			<li><a target="_blank" href="{$Request.domain}/school_jz/{$schoolInfo.schoolId}.html">招生简章</a></li>
+            <li><a target="_blank" href="{$Request.domain}/school_subject/{$schoolInfo.schoolId}.html">招生专业</a></li>
+            <li><a target="_blank" href="">网上报名</a></li>
+      			<li><a target="_blank" href="">成绩查询</a></li>
+          </ul>
+      </div>
+			<div class="changeRange">
+				<div class="yx_dt_bm">
+					<img src="{$schoolInfo.schoolImage}" alt="{$schoolInfo.schoolName}">
+				</div>
+				<ul class="yx_dt">
+				  <h3><a href="#">院校新闻</a></h3>
+          {volist name="$newSchoolArticle" id="vo"}
+            <li><a href="{$Request.domain}/{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" target="_blank">{:strCut($vo.title,23)}</a><span>{:time2Format($vo.add_time,'m/d')}</span></li>
+          {/volist}
+
+				</ul>
+				<div class="yx_jz">
+					<ul>
+					<h3><a href="#">招生简章</a></h3>
+          
+          {volist name="$newSchoolArticle_jz" id="vo"}
+            <li><a href="{$Request.domain}/{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html" target="_blank">{:strCut($vo.title,41)}</a><span>{:time2Format($vo.add_time,'m/d')}</span></li>
+          {/volist}
+					</ul>
+				</div>
+				<div class="yx_bm">
+				  <a href="#">{$schoolInfo.schoolName}自考网上报名</a>
+				</div>
+				<table>
+          <thead>
+            <tr class="yxjs-tabbj">
+                <td class="yxjs-tabmc">专业名称</td>
+                <td class="yxjs-tabxz">专业代码</td>
+                <td class="yxjs-tabxs">专业层次</td>
+                <td class="yxjs-tabkl">专业分类</td>
+                <td class="yxjs-tabbm">网上报名</td>
+            </tr>
+            </thead>
+            <tbody id="Content">
+              {volist name="$subjects" id="vo"}
+                <tr> 
+                  <td class="bm_red"><a href="{$Request.domain}/major/{$vo.subjectId}.html" target="_blank">{$vo.subject_name}</a></td>
+                  <td>{$vo.subjectCode}</td>
+                  <td>{:subjectLevel($vo.subjectLevel)}</td>
+                  <td>{:subjectType($vo.subjectType)}</td>
+                  <td class="bm_red"><a target="_blank" href="">立即报名</a></td>
+                </tr>
+              {/volist}
+              
+          </tbody>
+      </table>
+			</div>  
+			<div class="yx_by">
+				<ul>
+				<h3>毕业证书</h3>
+        {volist name="$diplomas" id="vo"}
+					<li><a href="{$Request.domain}/{:c2PyByAreaid($vo.province_id)}/info_{$vo.id}.html"><img style="width: 160px;height: 100px;" src="{$vo.thumb_img}" alt="{$vo.title}"></a></li>
+        {/volist}  
+				</ul>
+			</div>
+	</div>
